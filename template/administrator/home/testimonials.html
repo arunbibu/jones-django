@@ -1,0 +1,231 @@
+{% extends 'administrator/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row align-items-center pb40">
+    <div class="col-xxl-3">
+        <div class="dashboard_title_area">
+            <h2>Testimonials</h2>
+            <p class="text">Lorem ipsum dolor sit.</p>
+        </div>
+    </div>
+    <div class="col-xxl-9">
+        <div class="dashboard_search_meta d-md-flex align-items-center justify-content-xxl-end">
+            <div href="" class="ud-btn btn-thm" id="add-btn">Add Testimonials<i class="fal fa-arrow-right-long"></i></div>
+            <div href="" class="ud-btn btn-thm" id="close-btn" style="display: none;">Close<i class="fal fa-arrow-right-long"></i></div>
+        </div>
+    </div>
+</div>
+<div class="row" id="view-data">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <div class="packages_table table-responsive">
+                <table class="table-style3 table at-savesearch">
+                    <thead class="t-head">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Designation</th>
+                            <th scope="col">Content</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="t-body">
+                        {% for testimonial in testimonials %}
+                        <tr>
+                            <th scope="row">
+                                <div class="listing-style1 dashboard-style d-xxl-flex align-items-center mb-0">
+                                    <div class="list-thumb">
+                                        <img class="w-100" src="{{testimonial.image.url}}" alt="{{testimonial.name}}" style="height: 100%;object-fit: cover;">
+                                    </div>
+                                    <div class="list-content py-0 p-0 mt-2 mt-xxl-0 ps-xxl-4">
+                                        <div class="h6 list-title"><a href="javascript:void(0);">{{testimonial.name}}</a></div>
+                                    </div>
+                                </div>
+                            </th>
+                            <td class="vam">{{testimonial.designation}}</td>
+                            <td class="vam">{{testimonial.content|truncatechars:20}}</td>
+                            <td class="vam">
+                                <div class="d-flex">
+                                    <a href="" class="icon edit-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Edit" id="{{testimonial.id}}"><span class="fas fa-pen fa"></span></a>
+                                    <a href="" class="icon delete-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Delete" id="{{testimonial.id}}"><span class="flaticon-bin"></span></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% comment %} <div class="mbp_pagination text-center mt30">
+                    <ul class="page_navigation">
+                        <li class="page-item">
+                            <a class="page-link" href="#"> <span class="fas fa-angle-left"></span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">20</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#"><span class="fas fa-angle-right"></span></a>
+                        </li>
+                    </ul>
+                    <p class="mt10 pagination_page_count text-center">1 – 20 of 300+ property available</p>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="add-data" style="display: none;">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <form class="row g-3 justify-content-center form-style1" action="{% url 'testimonial' %}" method="POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label class="form-label fw600 dark-color">Name</label>
+                <input type="text" class="form-control" placeholder="Your Name" name="testimonial-name">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw600 dark-color">Designation</label>
+                <input type="text" class="form-control" placeholder="Your Designation" name="testimonial-designation">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw600 dark-color">Banner Image</label>
+              <input class="form-control" type="file" name="testimonial-image" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw600 dark-color">Content</label>
+              <input class="form-control" type="text" placeholder="Your Content" name="testimonial-content" />
+            </div>
+
+            <!-- end col -->
+            <div class="col-12 d-flex justify-content-center">
+              <button class="ud-btn btn-thm-border mb25 me-4" type="submit">Submit</button>
+            </div>
+            <!-- end col -->
+          </form>
+        </div>
+    </div>
+</div>
+<div class="row" id="update-data" style="display: none;">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <form class="row g-3 justify-content-center form-style1" action="{% url 'testimonial' %}" method="POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="col-md-6">
+                <label class="form-label fw600 dark-color">Name</label>
+                <input type="text" class="form-control" placeholder="Your Name" name="testimonial-name" id="testimonial-name">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label fw600 dark-color">Designation</label>
+                <input type="text" class="form-control" placeholder="Your Designation" name="testimonial-designation" id="testimonial-designation">
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw600 dark-color">Banner Image</label>
+              <input class="form-control" type="file" name="testimonial-image" id="testimonial-image" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw600 dark-color">Content</label>
+              <input class="form-control" type="text" placeholder="Your Content" name="testimonial-content" id="testimonial-content" />
+            </div>
+
+            <!-- end col -->
+            <div class="col-12 d-flex justify-content-center">
+              <button class="ud-btn btn-thm-border mb25 me-4" type="submit">Submit</button>
+            </div>
+            <!-- end col -->
+          </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script>
+  $(function () {
+    //add btn
+    $("#add-btn").click(function () {
+      $("#add-btn").hide();
+      $("#close-btn").show();
+      $("#view-data").hide();
+      $("#update-data").hide();
+      $("#add-data").show();
+    });
+
+    // Close Btn
+    $("#close-btn").click(function () {
+      $("#add-btn").show();
+      $("#close-btn").hide();
+      $("#view-data").show();
+      $("#add-data").hide();
+      $("#update-data").hide();
+    });
+  });
+  {% if perms.administrator.delete_homeherobanner %}
+    //delete
+    $("table").on("click", ".delete-btn", function () {
+      var id = $(this).attr("id");
+      var token = '{{csrf_token}}';
+      if (confirm("Are you sure ? You want to delete this ?")) {
+        $.ajax({
+          headers: { "X-CSRFToken": token },
+          type: 'POST',
+          url: "{% url 'testimonial-delete' id=12345 %}".replace(/12345/, id.toString()),
+          success: function (data) {
+            if (data.result == true) {
+              alert("Deleted");
+              window.location.reload();
+            }
+            else if (data.result == false) {
+              if (data.content == "Error Occured while deleting") {
+                alert("File does not exist");
+              }
+            }
+          }
+        });
+      } else {
+        alert("Something wrong please try after some time !");
+      }
+    });
+  {% endif %}
+
+  {% if perms.administrator.change_homeherobanner %}
+    //update
+    $('table').on("click", '.edit-btn', function (e) {
+        e.preventDefault();
+        
+      $("#add-btn").hide();
+      $("#close-btn").show();
+      $("#view-data").hide();
+      $("#add-data").hide();
+      $("#update-data").show();
+
+      var id = $(this).attr("id");
+      if (id) {
+        var token = '{{csrf_token}}';
+        $.ajax({
+          type: 'GET',
+          headers: { "X-CSRFToken": token },
+          dataType: 'json',
+          url: "{% url 'testimonial-list' id=12345 %}".replace(/12345/, id.toString()),
+          success: function (data) {
+            $('#testimonial-name').val(data.result[0].name)
+            $('#testimonial-designation').val(data.result[0].designation)
+            $('#testimonial-content').val(data.result[0].content)
+            $('#update-data form').attr("action", "{% url 'testimonial-update' id=12345 %}".replace(/12345/, data.result[0].id.toString()))
+          }
+        });
+      }
+      else {
+        alert("Something went wrong please try after some time !");
+      }
+    });
+    {% endif %}
+</script>
+{% endblock %}

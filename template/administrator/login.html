@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="{% lorem 5 b random %}">
+  <meta name="description" content="{% lorem 10 b random %}">
+  <meta name="CreativeLayers" content="ATFN">
+  <!-- css file -->
+  <link rel="stylesheet" href="{% static 'jones/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/ace-responsive-menu.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/menu.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/bootstrap-select.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/ud-custom-spacing.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/jquery-ui.min.css' %}">
+  <!-- Responsive stylesheet -->
+  <link rel="stylesheet" href="{% static 'jones/css/responsive.css' %}">
+  <!-- Title -->
+  <title>Homez - Real Estate HTML Template</title>
+  <!-- Favicon -->
+  <link href="{% static 'jones/images/favicon.ico' %}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+  <link href="{% static 'jones/images/favicon.ico' %}" sizes="128x128" rel="shortcut icon" />
+  <!-- Apple Touch Icon -->
+  <link href="{% static 'jones/images/apple-touch-icon-60x60.png' %}" sizes="60x60" rel="apple-touch-icon">
+  <link href="{% static 'jones/images/apple-touch-icon-72x72.png' %}" sizes="72x72" rel="apple-touch-icon">
+  <link href="{% static 'jones/images/apple-touch-icon-114x114.png' %}" sizes="114x114" rel="apple-touch-icon">
+  <link href="{% static 'jones/images/apple-touch-icon-180x180.png' %}" sizes="180x180" rel="apple-touch-icon">
+</head>
+
+<body class="bgc-f7">
+  <div class="wrapper ovh">
+    <div class="preloader"></div>
+    <div class="body_content">
+      <!-- Our Compare Area -->
+      <section class="our-compare pt60 pb60">
+        <img src="{% static 'jones/images/icon/login-page-icon.svg' %}" alt="" class="login-bg-icon wow fadeInLeft"
+          data-wow-delay="300ms" />
+        <div class="container">
+          <div class="row wow fadeInRight" data-wow-delay="300ms">
+            <div class="col-lg-6">
+              <form class="log-reg-form signup-modal form-style1 bgc-white p50 p30-sm default-box-shadow2 bdrs12"
+                method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <div class="text-center mb40">
+                  <img class="mb25" src="https://via.placeholder.com/138x44" alt="" />
+                  <h2>Sign in</h2>
+                  <p class="text">Sign in with this account across the following sites.</p>
+                </div>
+                <div class="mb25">
+                  <label class="form-label fw600 dark-color">Username</label>
+                  <input type="text" class="form-control" placeholder="Enter Username" name="username" />
+                </div>
+                <div class="mb15">
+                  <label class="form-label fw600 dark-color">Password</label>
+                  <input type="password" class="form-control" placeholder="Enter Password" name="password" />
+                </div>
+                <div class="checkbox-style1 d-block d-sm-flex align-items-center justify-content-between mb10">
+                  <label class="custom_checkbox fz14 ff-heading">
+                    Remember me<input type="checkbox" checked="checked" />
+                    <span class="checkmark"></span>
+                  </label>
+                  {% comment %} <a class="fz14 ff-heading" href="#">Lost your password?</a> {% endcomment %}
+                </div>
+                {% if messages %}
+    {% for message in messages %}
+    <p style="color: red;font-weight: 600;">{{ message }}</p>
+    {% endfor %}
+{% endif %}
+                <div class="d-grid mb20">
+                  <button class="ud-btn btn-thm" type="submit">Sign in <i class="fal fa-arrow-right-long"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <a class="scrollToHome" href="#"><i class="fas fa-angle-up"></i></a>
+    </div>
+  </div>
+  <!-- Wrapper End -->
+  <script src="{% static 'jones/js/jquery-3.6.4.min.js' %}"></script>
+  <script src="{% static 'jones/js/jquery-migrate-3.0.0.min.js' %}"></script>
+  <script src="{% static 'jones/js/popper.min.js' %}"></script>
+  <script src="{% static 'jones/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'jones/js/jquery.mmenu.all.js' %}"></script>
+  <script src="{% static 'jones/js/ace-responsive-menu.js' %}"></script>
+  <script src="{% static 'jones/js/jquery-scrolltofixed-min.js' %}"></script>
+  <script src="{% static 'jones/js/wow.min.js' %}"></script>
+  <!-- Custom script for all pages -->
+  <script src="{% static 'jones/js/script.js' %}"></script>
+</body>
+
+</html>

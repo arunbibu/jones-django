@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+{% load static %}
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords"
+    content="advanced search, agency, agent, classified, directory, house, listing, property, real estate, real estate agency, real estate agent, realestate, realtor, rental">
+  <meta name="description" content="Homez - Real Estate HTML Template">
+  <meta name="CreativeLayers" content="ATFN">
+  <!-- css file -->
+  <link rel="stylesheet" href="{% static 'jones/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/ace-responsive-menu.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/menu.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/fontawesome.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/flaticon.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/bootstrap-select.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/ud-custom-spacing.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/animate.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/slider.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/jquery-ui.min.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/magnific-popup.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'jones/css/dashbord_navitaion.css' %}">
+  <!-- Responsive stylesheet -->
+  <link rel="stylesheet" href="{% static 'jones/css/responsive.css' %}">
+  <!-- Title -->
+  <title>Homez - Real Estate HTML Template</title>
+  <!-- Favicon -->
+  <title>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, rerum.</title>
+
+  <link href="https://via.placeholder.com/128x128" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+  <link href="https://via.placeholder.com/128x128" sizes="128x128" rel="shortcut icon" />
+
+  <link href="https://via.placeholder.com/60x60" sizes="60x60" rel="apple-touch-icon" />
+  <link href="https://via.placeholder.com/72x72" sizes="72x72" rel="apple-touch-icon" />
+  <link href="https://via.placeholder.com/114x114" sizes="114x114" rel="apple-touch-icon" />
+  <link href="https://via.placeholder.com/180x180" sizes="180x180" rel="apple-touch-icon" />
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="preloader"></div>
+
+    <!-- Main Header Nav -->
+    <header class="header-nav nav-innerpage-style menu-home4 dashboard_header main-menu">
+      <!-- Ace Responsive Menu -->
+      <nav class="posr">
+        <div class="container-fluid pr30 pr15-xs pl30 posr menu_bdrt1">
+          <div class="row align-items-center justify-content-between">
+            <div class="col-6 col-lg-auto">
+              <div class="text-center text-lg-start d-flex align-items-center">
+                <div class="dashboard_header_logo position-relative me-2 me-xl-5">
+                  <a href="{% url 'dashboard' %}" class="logo"><img src="{% static 'jones/images/logo.png' %}" alt=""></a>
+                </div>
+                <div class="fz20 ms-2 ms-xl-5">
+                  <a href="#" class="dashboard_sidebar_toggle_icon text-thm1 vam"><img src="{% static 'jones/images/dark-nav-icon.svg'%}"
+                      alt=""></a>
+                </div>
+              </div>
+            </div>
+            
+            <div class="col-6 col-lg-auto">
+              <div class="text-center text-lg-end header_right_widgets">
+                <ul class="mb0 d-flex justify-content-center justify-content-sm-end p-0">
+                  <li class="d-none d-sm-block"><a class="text-center mr15" href="page-login.html"><span
+                        class="flaticon-email"></span></a></li>
+                  <li class="d-none d-sm-block"><a class="text-center mr20 notif" href="#"><span
+                        class="flaticon-bell"></span></a></li>
+                  <li class=" user_setting">
+                    <div class="dropdown">
+                      <a class="btn" href="#" data-bs-toggle="dropdown">
+                        <img src="{% static 'jones/images/resource/user.png' %}" alt="user.png">
+                      </a>
+                      <div class="dropdown-menu">
+                        <div class="user_setting_content">                          
+                          <a class="dropdown-item" href="{% url 'logout' %}"><i class="flaticon-exit mr10"></i>Logout</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="dashboard_content_wrapper">
+      <div class="dashboard dashboard_wrapper pr30 pr0-xl">
+        <div class="dashboard__sidebar d-none d-lg-block">
+          <div class="dashboard_sidebar_list">
+            <div class="sidebar_list_item">
+              <a href="page-dashboard.html" class="items-center -is-active"><i
+                  class="flaticon-discovery mr15"></i>Dashboard</a>
+            </div>
+            <p class="fz15 fw400 ff-heading mt30">Home</p>
+            <div class="sidebar_list_item ">
+              <a href="{% url 'home-hero-banner' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Hero Banners</a>
+              <a href="{% url 'testimonial' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Testimonials</a>
+            </div>
+            <div class="sidebar_list_item ">
+              <a href="{% url 'logout' %}" class="items-center -is-active"><i class="flaticon-exit mr15"></i>Logout</a>
+            </div>
+          </div>
+        </div>
+        <div class="dashboard__main pl0-md">
+          <div class="dashboard__content bgc-f7">
+            <div class="row pb40">
+              <div class="col-lg-12">
+                <div class="dashboard_navigationbar d-block d-lg-none">
+                  <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
+                    <ul id="myDropdown" class="dropdown-content">
+                      <li class="active"><a href="page-dashboard.html"><i class="flaticon-discovery mr10"></i>Dashboard</a></li>
+                      <li><p class="fz15 fw400 ff-heading mt30 pl30">Home</p></li>
+                      <li><a href="{% url 'home-hero-banner' %}"><i class="flaticon-new-tab mr10"></i>Hero Banners</a></li>
+                      <li><a href="{% url 'testimonial' %}"><i class="flaticon-new-tab mr10"></i>Testimonials</a></li>
+                      <li class="active"><a class="" href="url"><i class="flaticon-exit mr10"></i>Logout</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          {% block content %}{% endblock %}
+          <footer class="dashboard_footer pt30 pb10">
+            <div class="container">
+              <div class="row items-center justify-content-center justify-content-md-between">
+                <div class="col-auto">
+                  <div class="copyright-widget">
+                    <p class="text">© Jones - All rights reserved</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+    <a class="scrollToHome" href="#"><i class="fas fa-angle-up"></i></a>
+  </div>
+  <!-- Wrapper End -->
+  <script src="{% static 'jones/js/jquery-3.6.4.min.js' %}"></script>
+  <script src="{% static 'jones/js/jquery-migrate-3.0.0.min.js' %}"></script>
+  <script src="{% static 'jones/js/popper.min.js' %}"></script>
+  <script src="{% static 'jones/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'jones/js/bootstrap-select.min.js' %}"></script>
+  <script src="{% static 'jones/js/jquery.mmenu.all.js' %}"></script>
+  <script src="{% static 'jones/js/ace-responsive-menu.js' %}"></script>
+  <script src="{% static 'jones/js/chart.min.js' %}"></script>
+  <script src="{% static 'jones/js/chart-custome.js' %}"></script>
+  <script src="{% static 'jones/js/jquery-scrolltofixed-min.js' %}"></script>
+  <script src="{% static 'jones/js/dashboard-script.js' %}"></script>
+  <!-- Custom script for all pages -->
+  <script src="{% static 'jones/js/script.js' %}"></script>
+
+  {% block scripts %}{% endblock %}
+</body>
+
+</html>
