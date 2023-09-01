@@ -1,642 +1,688 @@
 {% extends 'jones/base.html' %}
 {% load static %}
 {% block content %}
-  <!-- Breadcumb Sections -->
-  <section class="breadcumb-section bgc-f7">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="breadcumb-style1">
-            <h2 class="title">New York Homes for Sale</h2>
-            <div class="breadcumb-list">
-              <a href="">Home</a>
-              <a href="">For Rent</a>
-            </div>
-            <a href="" class="filter-btn-left mobile-filter-btn d-block d-lg-none"><span class="flaticon-settings"></span> Filter</a>
+
+<div class="p-4 mb-5" style="background-color: #f9f9f9;">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="breadcumb-style1">
+          <div class="breadcumb-list">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="javascript:void(0);">Properties</a>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</div>
+<section>
+  <div class="container">
+    <div class="row tab-cont" id="tenent-tab">
+      <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
+        <div class="about-box2">
+          <h3 class="title">Lease/Rent a Property<br class="d-none d-xl-block" /></h3>
+          <p class="text fz15">
+            JAM is your gateway to a seamless leasing and renting experience. Discover a diverse
+            range of rental properties that suit your preferences, backed by our expertise in property
+            management. From cozy apartments to spacious houses, we have options that cater to
+            every lifestyle.
+          </p>
+          <a href="{% url 'contact' %}" class="ud-btn btn-thm">Contact Us<i class="fal fa-arrow-right-long"></i></a>
+          <img class="img-1" src="{% static 'jones/images/about/home6-about-1.png' %}" alt />
+        </div>
+      </div>
+      <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-search-1"></span>
+              <h3 class="title mb-1">01</h3>
+              <h6 class="subtitle">Wide Selection</h6>
+              <p class="iconbox-text"> Explore a variety of rental properties that fit your needs and budget. Our
+                extensive portfolio ensures you'll find the right home for you.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-chat"></span>
+              <h3 class="title mb-1">02</h3>
+              <h6 class="subtitle">Easy Navigation</h6>
+              <p class="iconbox-text">Our user-friendly interface lets you effortlessly browse rentals on any
+                device. Whether you're on your computer or smartphone, your rental search remains
+                smooth.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-bird-house"></span>
+              <h3 class="title mb-1">03</h3>
+              <h6 class="subtitle">Expert Guidance</h6>
+              <p class="iconbox-text">JAM's dedicated agents are here to assist you at every step. From
+                property viewings to lease agreements, we provide professional guidance to make your
+                rental journey hassle-free.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-house-1"></span>
+              <h3 class="title mb-1">04</h3>
+              <h6 class="subtitle">Transparent Information</h6>
+              <p class="iconbox-text">Each property listing comes with clear details, high-quality
+                images, and essential information, giving you a comprehensive view of what's available.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Property All Lists -->
-  <section class="pt0 pb90 bgc-f7">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-9 d-none d-lg-block">
-          <div class="dropdown-lists">
-            <ul class="p-0 text-center text-xl-start">
-              <li class="list-inline-item position-relative">
-                <button type="button" class="open-btn mb15 dropdown-toggle" data-bs-toggle="dropdown">For Sale <i class="fa fa-angle-down ms-2"></i></button>
-                <div class="dropdown-menu">
-                  <div class="widget-wrapper bdrb1 pb25 mb0 pl20">
-                    <h6 class="list-title">Listing Status</h6>
-                    <div class="radio-element">
-                      <div class="form-check d-flex align-items-center mb10">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                        <label class="form-check-label" for="flexRadioDefault1">Buy</label>
-                      </div>
-                      <div class="form-check d-flex align-items-center mb10">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked="checked" />
-                        <label class="form-check-label" for="flexRadioDefault2">Rent</label>
-                      </div>
-                      <div class="form-check d-flex align-items-center">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
-                        <label class="form-check-label" for="flexRadioDefault3">Sold</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="text-end mt10 pr10">
-                    <button type="button" class="done-btn ud-btn btn-thm drop_btn">Done</button>
-                  </div>
+<!-- Property All Lists -->
+<section class="pb90 pt-0">
+  <div class="container">
+    <div class="row gx-xl-5">
+      <div class="col-lg-4 d-none d-lg-block">
+        <div class="list-sidebar-style1">
+          <div class="widget-wrapper">
+            <h6 class="list-title">Find your home</h6>
+            <div class="search_area">
+              <input type="text" class="form-control" placeholder="What are you looking for?">
+              <label><span class="flaticon-search"></span></label>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <h6 class="list-title">Listing Status</h6>
+            <div class="radio-element">
+              <div class="form-check d-flex align-items-center mb10">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                  checked="checked">
+                <label class="form-check-label" for="flexRadioDefault2">Rent</label>
+              </div>
+              <div class="form-check d-flex align-items-center mb10">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">Lease</label>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <h6 class="list-title">Property Type</h6>
+            <div class="checkbox-style1">
+              <label class="custom_checkbox">Apartments
+                <input type="checkbox" checked="checked">
+                <span class="checkmark"></span>
+              </label>
+              <label class="custom_checkbox">Independent
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="custom_checkbox">House/Villa
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <label class="custom_checkbox">Gated Community
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <h6 class="list-title">Price Range</h6>
+            <!-- Range Slider Desktop Version -->
+            <div class="range-slider-style1">
+              <div class="range-wrapper">
+                <div
+                  class="slider-range mt30 mb20 ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                  <div class="ui-slider-range ui-corner-all ui-widget-header" style="left: 0.02%; width: 70.967%;">
+                  </div><span tabindex="0" class="ui-slider-handle ui-corner-all ui-state-default"
+                    style="left: 0.02%;"></span><span tabindex="0"
+                    class="ui-slider-handle ui-corner-all ui-state-default" style="left: 70.987%;"></span>
                 </div>
-              </li>
-              <li class="list-inline-item position-relative">
-                <button type="button" class="open-btn mb15 dropdown-toggle" data-bs-toggle="dropdown">Property Type <i class="fa fa-angle-down ms-2"></i></button>
-                <div class="dropdown-menu">
-                  <div class="widget-wrapper bdrb1 pb25 mb0 pl20">
-                    <h6 class="list-title">Property Type</h6>
-                    <div class="checkbox-style1">
-                      <label class="custom_checkbox">
-                        Houses<input type="checkbox" />
-                        <span class="checkmark"></span>
-                      </label>
-                      <label class="custom_checkbox">
-                        Apartments<input type="checkbox" checked="checked" />
-                        <span class="checkmark"></span>
-                      </label>
-                      <label class="custom_checkbox">
-                        Office<input type="checkbox" />
-                        <span class="checkmark"></span>
-                      </label>
-                      <label class="custom_checkbox">
-                        Villa<input type="checkbox" />
-                        <span class="checkmark"></span>
-                      </label>
-                      <label class="custom_checkbox">
-                        Townhome<input type="checkbox" />
-                        <span class="checkmark"></span>
-                      </label>
-                    </div>
-                  </div>
-                  <div class="text-end mt10 pr10">
-                    <button type="button" class="done-btn ud-btn btn-thm dropdown-toggle">Done</button>
-                  </div>
+                <div class="text-center">
+                  <input type="text" class="amount" placeholder="&#x20B9;20"><span
+                    class="fa-sharp fa-solid fa-minus mx-2 dark-color"></span>
+                  <input type="text" class="amount2" placeholder="&#x20B9;70987">
                 </div>
-              </li>
-              <li class="list-inline-item position-relative">
-                <button type="button" class="open-btn mb15 dropdown-toggle" data-bs-toggle="dropdown">Price <i class="fa fa-angle-down ms-2"></i></button>
-                <div class="dropdown-menu dd3">
-                  <div class="widget-wrapper bdrb1 pb25 mb0 pl20 pr20">
-                    <h6 class="list-title">Price Range</h6>
-                    <!-- Range Slider Desktop Version -->
-                    <div class="range-slider-style1">
-                      <div class="range-wrapper">
-                        <div class="slider-range mt30 mb20"></div>
-                        <div class="text-center">
-                          <input type="text" class="amount" placeholder="$20" /><span class="fa-sharp fa-solid fa-minus mx-1 dark-color"></span>
-                          <input type="text" class="amount2" placeholder="$70987" />
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <h6 class="list-title">Bhk type</h6>
+            <div class="d-flex">
+              <div class="selection">
+                <input id="any" name="beds" type="radio" checked="">
+                <label for="any">Any</label>
+              </div>
+              <div class="selection">
+                <input id="oneplus" name="beds" type="radio">
+                <label for="oneplus">1+</label>
+              </div>
+              <div class="selection">
+                <input id="twoplus" name="beds" type="radio">
+                <label for="twoplus">2+</label>
+              </div>
+              <div class="selection">
+                <input id="threeplus" name="beds" type="radio">
+                <label for="threeplus">3+</label>
+              </div>
+              <div class="selection">
+                <input id="fourplus" name="beds" type="radio">
+                <label for="fourplus">4+</label>
+              </div>
+              <div class="selection">
+                <input id="fiveplus" name="beds" type="radio">
+                <label for="fiveplus">5+</label>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <h6 class="list-title">Bathrooms</h6>
+            <div class="d-flex">
+              <div class="selection">
+                <input id="bathany" name="bath" type="radio" checked="">
+                <label for="bathany">Any</label>
+              </div>
+              <div class="selection">
+                <input id="bathoneplus" name="bath" type="radio">
+                <label for="bathoneplus">1+</label>
+              </div>
+              <div class="selection">
+                <input id="bathtwoplus" name="bath" type="radio">
+                <label for="bathtwoplus">2+</label>
+              </div>
+              <div class="selection">
+                <input id="baththreeplus" name="bath" type="radio">
+                <label for="baththreeplus">3+</label>
+              </div>
+              <div class="selection">
+                <input id="bathfourplus" name="bath" type="radio">
+                <label for="bathfourplus">4+</label>
+              </div>
+              <div class="selection">
+                <input id="bathfiveplus" name="bath" type="radio">
+                <label for="bathfiveplus">5+</label>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper advance-feature-modal">
+            <h6 class="list-title">Direction Facing</h6>
+            <div class="form-style2 input-group">
+              <div class="dropdown bootstrap-select" style="width: 100%;"><select class="selectpicker" data-width="100%"
+                  tabindex="null">
+                  <option>All</option>
+                  <option value="">East</option>
+                  <option value="">West</option>
+                  <option value="">North</option>
+                  <option value="">South</option>
+                  <option value="">South West</option>
+                  <option value="">South East</option>
+                  <option value="">North East</option>
+                  <option value="">North West</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <h6 class="list-title">Square Feet</h6>
+            <div class="space-area">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="form-style1">
+                  <input type="text" class="form-control" placeholder="Min.">
+                </div>
+                <span class="dark-color">-</span>
+                <div class="form-style1">
+                  <input type="text" class="form-control" placeholder="Max">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <h6 class="list-title">Year Built</h6>
+            <div class="space-area">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="form-style1">
+                  <input type="text" class="form-control" placeholder="2019">
+                </div>
+                <span class="dark-color">-</span>
+                <div class="form-style1">
+                  <input type="text" class="form-control" placeholder="2022">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper advance-feature-modal">
+            <h6 class="list-title">Eating Preference</h6>
+            <div class="form-style2 input-group">
+              <div class="dropdown bootstrap-select" style="width: 100%;"><select class="selectpicker" data-width="100%"
+                  tabindex="null">
+                  <option>All</option>
+                  <option value="">Veg</option>
+                  <option value="">Non Veg</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper advance-feature-modal">
+            <h6 class="list-title">Furnishing</h6>
+            <div class="form-style2 input-group">
+              <div class="dropdown bootstrap-select" style="width: 100%;"><select class="selectpicker" data-width="100%"
+                  tabindex="null">
+                  <option>All</option>
+                  <option value="">Semi Furnished</option>
+                  <option value="">Fully Furnished</option>
+                  <option value="">Unfurnished</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper advance-feature-modal">
+            <h6 class="list-title">Parking</h6>
+            <div class="form-style2 input-group">
+              <div class="dropdown bootstrap-select" style="width: 100%;"><select class="selectpicker" data-width="100%"
+                  tabindex="null">
+                  <option>All</option>
+                  <option value="">2 Wheeler</option>
+                  <option value="">4 Wheeler</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper advance-feature-modal">
+            <h6 class="list-title">Balcony</h6>
+            <div class="form-style2 input-group">
+              <div class="dropdown bootstrap-select" style="width: 100%;"><select class="selectpicker" data-width="100%"
+                  tabindex="null">
+                  <option>All</option>
+                  <option value="">Yes</option>
+                  <option value="">No</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper">
+            <div class="feature-accordion">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item border-none">
+                  <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button border-none p-0 after-none feature-button" type="button"
+                      data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                      aria-controls="collapseOne"><span class="flaticon-settings"></span> Amminities</button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body p-0 mt15">
+                      <div class="row">
+                        <div class="col-lg-6">
+                          <div class="checkbox-style1">
+                            <label class="custom_checkbox">Corperation Water
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Drainage Facility
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">24/7 Power Backup
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Lift
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Gym
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Swimming Pool
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Security
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">ATM
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Visitors Parking
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Shopping Complex
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="checkbox-style1">
+                            <label class="custom_checkbox">Piped Gas
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Playground
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Yoga Room
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Medical Center
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">CCTV
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Park
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Community Hall
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Maintenance Staff
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Laundromat
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Library
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Lobby
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                            <label class="custom_checkbox">Party Hall
+                              <input type="checkbox">
+                              <span class="checkmark"></span>
+                            </label>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <div class="text-end mt10 pr10">
-                    <button type="button" class="done-btn ud-btn btn-thm drop_btn3">Done</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget-wrapper mb20">
+            <div class="btn-area d-grid align-items-center">
+              <button class="ud-btn btn-thm"><span class="flaticon-search align-text-top pr10"></span>Search</button>
+            </div>
+          </div>
+          <div class="reset-area d-flex align-items-center justify-content-between">
+            <a class="reset-button" href="#"><span class="flaticon-turn-back"></span><u>Reset all filters</u></a>
+            <a class="reset-button" href="#"><span class="flaticon-favourite"></span><u>Save Search</u></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="row align-items-center mb20">
+          <div class="col-sm-6">
+            <div class="text-center text-sm-start">
+              <p class="pagination_page_count mb-0">Showing 1–10 of 13 results</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="page_control_shorting d-flex align-items-center justify-content-center justify-content-sm-end">
+              <div class="pcs_dropdown pr10"><span>Sort by</span>
+                <select class="selectpicker show-tick">
+                  <option>Newest</option>
+                  <option>Best Seller</option>
+                  <option>Best Match</option>
+                  <option>Price Low</option>
+                  <option>Price High</option>
+                </select>
+              </div>
+              <a class="pl15 pr15 bdrl1 bdrr1 d-none d-md-block" href="javascript:void(0);">Grid</a>
+              <a class="pl15 d-none d-md-block" href="javascript:void(0);">List</a>
+            </div>
+          </div>
+        </div>
+        <div class="row mt15">
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
                   </div>
                 </div>
-              </li>
-              <li class="list-inline-item position-relative">
-                <button type="button" class="open-btn mb15 dropdown-toggle" data-bs-toggle="dropdown">Beds / Baths <i class="fa fa-angle-down ms-2"></i></button>
-                <div class="dropdown-menu dd4 pb20">
-                  <div class="widget-wrapper pl20 pr20">
-                    <h6 class="list-title">Bedrooms</h6>
-                    <div class="d-flex">
-                      <div class="selection">
-                        <input id="any" name="beds" type="radio" checked />
-                        <label for="any">any</label>
-                      </div>
-                      <div class="selection">
-                        <input id="oneplus" name="beds" type="radio" />
-                        <label for="oneplus">1+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="twoplus" name="beds" type="radio" />
-                        <label for="twoplus">2+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="threeplus" name="beds" type="radio" />
-                        <label for="threeplus">3+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="fourplus" name="beds" type="radio" />
-                        <label for="fourplus">4+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="fiveplus" name="beds" type="radio" />
-                        <label for="fiveplus">5+</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="widget-wrapper bdrb1 pb25 mb0 pl20 pr20">
-                    <h6 class="list-title">Bathrooms</h6>
-                    <div class="d-flex">
-                      <div class="selection">
-                        <input id="baany" name="bath" type="radio" checked />
-                        <label for="baany">any</label>
-                      </div>
-                      <div class="selection">
-                        <input id="baoneplus" name="bath" type="radio" />
-                        <label for="baoneplus">1+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="batwoplus" name="bath" type="radio" />
-                        <label for="batwoplus">2+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="bathreeplus" name="bath" type="radio" />
-                        <label for="bathreeplus">3+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="bafourplus" name="bath" type="radio" />
-                        <label for="bafourplus">4+</label>
-                      </div>
-                      <div class="selection">
-                        <input id="bafiveplus" name="bath" type="radio" />
-                        <label for="bafiveplus">5+</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="text-end mt10 pr10">
-                    <button type="button" class="done-btn ud-btn btn-thm drop_btn4">Done</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="listing-style7">
+              <div class="list-thumb">
+                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
+                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
+                <div class="list-tag2 fz12">FOR RENT</div>
+                <div class="list-meta">
+                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
+                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
+                </div>
+              </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
+                </h6>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="list-price">&#8377; 180000 <span></span> </div>
+                  <div class="list-meta2 d-flex align-items-center">
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-bed mr5"></span>3</a>
+                    <a class="mr10" href="javascript:void(0);"><span class="flaticon-shower mr5"></span>4</a>
+                    <a href="javascript:void(0);"><span class="flaticon-expand mr5"></span>1200</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="mbp_pagination text-center">
+            <ul class="page_navigation">
+              <li class="page-item">
+                <a class="page-link" href="#"> <span class="fas fa-angle-left"></span></a>
               </li>
-              <li class="list-inline-item">
-                <!-- Advance Features modal trigger -->
-                <button type="button" class="open-btn mb15" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="flaticon-settings me-2"></i> More Filter</button>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item active" aria-current="page">
+                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item"><a class="page-link" href="#">...</a></li>
+              <li class="page-item"><a class="page-link" href="#">20</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#"><span class="fas fa-angle-right"></span></a>
               </li>
             </ul>
+            <p class="mt10 pagination_page_count text-center">1 – 20 of 300+ property available</p>
           </div>
-        </div>
-        <div class="col-xl-3">
-          <div class="page_control_shorting mb30 d-flex align-items-center justify-content-center justify-content-xl-end">
-            <div class="pcs_dropdown pr10">
-              <span>Sort by</span>
-              <select class="selectpicker show-tick">
-                <option>Newest</option>
-                <option>Best Seller</option>
-                <option>Best Match</option>
-                <option>Price Low</option>
-                <option>Price High</option>
-              </select>
-            </div>
-            <a class="pl15 pr15 bdrl1 bdrr1 d-none d-md-block" href="">Grid</a>
-            <a class="pl15 d-none d-md-block" href="">List</a>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <div class="listing-style1">
-            <div class="list-thumb">
-              <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-              <div class="list-tag fz12">
-                <span class="flaticon-electricity me-2"></span>FEATURED
-              </div>
-              <div class="list-price">&#8377; 180000</div>
-            </div>
-            <div class="list-content">
-              <h6 class="list-title"><a href="property-single.php">3 BHK Residential Apartment for Lease</a></h6>
-              <p class="list-text">Kanagapura. Bangalore, India</p>
-              <div class="list-meta d-flex align-items-center">
-                <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-              </div>
-              <hr class="mt-2 mb-2" />
-              <div class="list-meta2 d-flex justify-content-between align-items-center">
-                <span class="for-what">For Rent</span>
-                <!--  <div class="icons d-flex align-items-center">
-                            <a href=""><span class="flaticon-fullscreen"></span></a>
-                            <a href=""><span class="flaticon-new-tab"></span></a>
-                            <a href=""><span class="flaticon-like"></span></a>
-                          </div>  -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="mbp_pagination text-center">
-          <ul class="page_navigation">
-            <li class="page-item">
-              <a class="page-link" href="#"><span class="fas fa-angle-left"></span></a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">1</a>
-            </li>
-            <li class="page-item active" aria-current="page">
-              <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">4</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">5</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">...</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#">20</a>
-            </li>
-            <li class="page-item">
-              <a class="page-link" href="#"><span class="fas fa-angle-right"></span></a>
-            </li>
-          </ul>
-          <p class="mt10 pagination_page_count text-center">1 – 20 of 300+ property available</p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 {% endblock %}

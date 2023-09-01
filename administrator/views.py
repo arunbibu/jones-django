@@ -229,3 +229,70 @@ def testimonials_delete(request, id):
             return JsonResponse({'result': 'This user is not Authorized to delete testimonial'})
     else:
         return JsonResponse({'result': 'This user is not Authorized to delete testimonial'})
+    
+
+# Meta Tag Section
+
+
+@login_required(login_url='login')
+def meta_tags(request):
+    if request.user.is_authenticated:
+        if request.method == "GET":
+            if request.user.has_perm('administrator.view_tagmanager'):
+                if TagManager.objects.filter(id=1).exists():
+                    meta_tag = TagManager.objects.filter(id=1)
+                else:
+                    meta_tag = 0
+                return render(request, 'administrator/tag-manager.html', {'meta_tags': meta_tag})
+            else:
+                return HttpResponse('This user is not Authorized to view Meta Tag')
+        if request.method == "POST":
+            tag = request.POST['meta-tag-tags']
+            other = request.POST['meta-tag-other']
+            tags, created = TagManager.objects.get_or_create(id=1)
+            if created:
+                created.meta_tag = tag
+                created.other_contet = other
+                created.save()
+            else:
+                tags.meta_tag = tag
+                tag.other_content = other
+                tag.save()
+            meta_tag = TagManager(
+                tag=tag, other=other)
+            meta_tag.save()
+            return redirect("meta_tag")
+    else:
+        return HttpResponse('Please Login first to view Meta Tag')
+
+
+
+@login_required(login_url='login')
+def meta_tags_update(request, id):
+    if request.user.is_authenticated:
+        if request.user.has_perm('administrator.change_meta_tags'):
+            if request.method == "POST":
+                try:
+                    name = request.POST['meta-tag-name']
+                    designation = request.POST['meta-tag-designation']
+                    content = request.POST['meta-tag-content']
+                    meta_tag = Testimonials.objects.get(id=id)
+                    meta_tag.name = name
+                    meta_tag.designation = designation
+                    if request.FILES:
+                        image = request.FILES['meta-tag-image']
+                        meta_tag.image = image
+                    meta_tag.content = content
+                    meta_tag.save()
+                    return redirect("meta_tag")
+                except Exception as e:
+                    print(str(e))
+                    return HttpResponse('Error Occured while updating')
+            else:
+                return HttpResponse('Incorrect Method')
+        else:
+            return HttpResponse('This user is not Authorized to change meta_tag')
+    else:
+        return HttpResponse('This user is not Authorized to change meta_tag')
+
+

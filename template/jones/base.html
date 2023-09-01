@@ -1,7 +1,8 @@
-{% load static %} 
+{% load static %}
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,107 +25,129 @@
 
     <link rel="stylesheet" href="{% static 'jones/css/responsive.css' %}" />
 
-    <title>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, rerum.</title>
+    <title>Jones Asset Management</title>
 
-    <link href="https://via.placeholder.com/128x128" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
-    <link href="https://via.placeholder.com/128x128" sizes="128x128" rel="shortcut icon" />
+    <link href="{% static 'jones/images/fav.ico' %}" sizes="128x128" rel="shortcut icon" type="image/x-icon" />
+    <link href="{% static 'jones/images/fav.ico' %}" sizes="128x128" rel="shortcut icon" />
 
-    <link href="https://via.placeholder.com/60x60" sizes="60x60" rel="apple-touch-icon" />
-    <link href="https://via.placeholder.com/72x72" sizes="72x72" rel="apple-touch-icon" />
-    <link href="https://via.placeholder.com/114x114" sizes="114x114" rel="apple-touch-icon" />
-    <link href="https://via.placeholder.com/180x180" sizes="180x180" rel="apple-touch-icon" />
-  </head>
+    <link href="{% static 'jones/images/fav.ico' %}" sizes="60x60" rel="apple-touch-icon" />
+    <link href="{% static 'jones/images/fav.ico' %}" sizes="72x72" rel="apple-touch-icon" />
+    <link href="{% static 'jones/images/fav.ico' %}" sizes="114x114" rel="apple-touch-icon" />
+    <link href="{% static 'jones/images/fav.ico' %}" sizes="180x180" rel="apple-touch-icon" />
+</head>
 
-  <body>
+<body>
     <div class="wrapper ovh">
         <div class="preloader"></div>
 
         <header class="header-nav nav-homepage-style at-home2 stricky main-menu">
             <nav class="posr">
-            <div class="container maxw1600 posr">
-                <div class="row align-items-center justify-content-between">
-                <div class="col-auto">
-                    <div class="d-flex align-items-center justify-content-between">
-                    <div class="logos mr35">
-                        <a class="header-logo logo1" href="{% url 'home' %}"><img src="{% static 'jones/images/logo.png' %}" alt="Header Logo" /></a>
-                        <a class="header-logo logo2" href="{% url 'home' %}"><img src="{% static 'jones/images/logo.png' %}" alt="Header Logo" /></a>
-                    </div>
+                <div class="container maxw1600 posr">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="logos mr35">
+                                    <a class="header-logo logo1" href="{% url 'home' %}"><img
+                                            src="{% static 'jones/images/logo.png' %}" alt="Header Logo" /></a>
+                                    <a class="header-logo logo2" href="{% url 'home' %}"><img
+                                            src="{% static 'jones/images/logo.png' %}" alt="Header Logo" /></a>
+                                </div>
 
-                    <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
-                        <li class="visible_list">
-                        <a class="list-item" href="#"><span class="title">Home</span></a>
-                        </li>
-                        <li class="visible_list">
-                        <a class="list-item" href="{% url 'listing' %}"><span class="title">Lease/Rent a Property</span></a>
-                        </li>
-                        <li class="visible_list">
-                        <a class="list-item" href="{% url 'listing' %}"><span class="title">List a Property</span></a>
-                        </li>
-                        <li class="visible_list">
-                        <a class="list-item" href="#"><span class="title">Services</span></a>
-                        </li>
-                        <li class="visible_list">
-                        <a class="list-item" href="{% url 'about' %}"><span class="title">About Us</span></a>
-                        </li>
-                        <li class="visible_list">
-                        <a class="list-item" href="#"><span class="title">Real Estate Guide</span></a>
-                        </li>
-                    </ul>
+                                <ul id="respMenu" class="ace-responsive-menu" data-menu-style="horizontal">
+                                    <li class="visible_list">
+                                        <a class="list-item" href="{% url 'home' %}"><span class="title">Home</span></a>
+                                    </li>
+                                    <li class="visible_list">
+                                        <a class="list-item" href="{% url 'listing' %}"><span
+                                                class="title">Lease/Rent a
+                                                Property</span></a>
+                                    </li>
+                                    <li class="visible_list">
+                                        <a class="list-item" href="{% url 'properties' %}"><span class="title">List a
+                                                Property</span></a>
+                                    </li>
+                                    <li class="visible_list"> <a class="list-item" href="#"><span
+                                                class="title">Services</span><span class="arrow "></span></a>
+                                        <ul class="sub-menu" style="display: none;">
+                                            <li><a href="{% url 'leasing' %}">Leasing</a></li>
+                                            <li><a href="{% url 'rental' %}">Rental</a></li>
+                                            <li><a href="{% url 'sell' %}">Sell</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="visible_list">
+                                        <a class="list-item" href="{% url 'listing' %}"><span
+                                                class="title">Interiors</span></a>
+                                    </li>
+                                    <li class="visible_list">
+                                        <a class="list-item" href="{% url 'about' %}"><span class="title">About
+                                                Us</span></a>
+                                    </li>
+                                    <li class="visible_list">
+                                        <a class="list-item" href="{% url 'real-estate-guide' %}"><span class="title">Real Estate Guide</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="d-flex align-items-center">
+                                <a class="ud-btn add-property menu-btn bdrs60 mx-2 mx-xl-4"
+                                    href="{% url 'contact' %}">Contact Us<i class="fal fa-arrow-right-long"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-auto">
-                    <div class="d-flex align-items-center">
-                    <a class="ud-btn add-property menu-btn bdrs60 mx-2 mx-xl-4" href="{% url 'contact' %}">Contact Us<i class="fal fa-arrow-right-long"></i></a>
-                    </div>
-                </div>
-                </div>
-            </div>
             </nav>
         </header>
 
         <div id="page" class="mobilie_header_nav stylehome1">
             <div class="mobile-menu">
-            <div class="header innerpage-style">
-                <div class="menu_and_widgets">
-                <div class="mobile_menu_bar d-flex justify-content-between align-items-center">
-                    <a class="menubar" href="#menu"><img src="{% static 'jones/images/mobile-dark-nav-icon.svg' %}" alt /></a>
-                    <a class="mobile_logo" href="#"><img src="{% static 'jones/images/header-logo2.svg' %}" alt /></a>
-                    <a href="#"><span class="icon fz18 far fa-user-circle"></span></a>
+                <div class="header innerpage-style">
+                    <div class="menu_and_widgets">
+                        <div class="mobile_menu_bar d-flex justify-content-between align-items-center">
+                            <a class="menubar" href="#menu"><img src="{% static 'jones/images/logo.png' %}" alt /></a>
+                            <a class="mobile_logo" href="#"><img src="{% static 'jones/images/logo.png' %}" alt /></a>
+                            <a href="#"><span class="icon fz18 far fa-user-circle"></span></a>
+                        </div>
+                    </div>
                 </div>
-                </div>
-            </div>
             </div>
 
             <nav id="menu" class>
-            <ul>
-                <li>
-                <a href="{% url 'home' %}">Home</a>
-                </li>
-                <!-- <li>
-                <a href="listing.php">Lease/Rent a Property</a>
-                </li> -->
-                <li>
-                <a href="{% url 'listing' %}">List a Property</a>
-                </li>
-                <li>
-                <a href="#">Services</a>
-                </li>
-                <li>
-                <a href="{% url 'about' %}">About Us</a>
-                </li>
-                <li>
-                <a href="#">Real Estate Guide</a>
-                </li>
-                <li>
-                <a href="#">Careers</a>
-                </li>
-                <li>
-                <a href="{% url 'contact' %}">Contact Us</a>
-                </li>
-                <li class="px-3 mobile-menu-btn">
-                <a href="#" class="ud-btn btn-thm text-white">Submit Property<i class="fal fa-arrow-right-long"></i></a>
-                </li>
-            </ul>
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'listing' %}">Lease/Rent a Property</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'properties' %}">List a Property</a>
+                    </li>
+                    <li class="visible_list"> <a class="list-item" href="#"><span class="title">Property</span><span
+                                class="arrow "></span></a>
+                        <ul class="sub-menu" style="display: none;">
+                            <li><a href="{% url 'leasing' %}">Leasing</a></li>
+                            <li><a href="{% url 'rental' %}">Rental</a></li>
+                            <li><a href="{% url 'sell' %}">Sell</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}">About Us</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'real-estate-guide' %}">Real Estate Guide</a>
+                    </li>
+                    <li>
+                        <a href="#">Careers</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                    <li class="px-3 mobile-menu-btn">
+                        <a href="#" class="ud-btn btn-thm text-white">Submit Property<i
+                                class="fal fa-arrow-right-long"></i></a>
+                    </li>
+                </ul>
             </nav>
         </div>
 
@@ -141,7 +164,9 @@
                     <div class="row">
                         <div class="col-lg-5">
                             <div class="footer-widget mb-4 mb-lg-5">
-                                <a class="footer-logo" href="{% url 'home' %}"><img class="mb40" src="{% static 'jones/images/logo.png' %}" alt style="background: white;border-radius: 70px;padding: 20px;" /></a>
+                                <a class="footer-logo" href="{% url 'home' %}"><img class="mb40"
+                                        src="{% static 'jones/images/logo.png' %}" alt
+                                        style="background: white;border-radius: 70px;padding: 20px;" /></a>
                                 <div class="row mb-4 mb-lg-5">
                                     <div class="col-auto">
                                         <div class="contact-info">
@@ -155,12 +180,14 @@
                                         <div class="contact-info">
                                             <p class="info-title">Need Live Support?</p>
                                             <h6 class="info-mail">
-                                                <a href="/cdn-cgi/l/email-protection#bad0d5d4dfc9faddd7dbd3d694d9d5d7"><span class="__cf_email__" data-cfemail="a1cbcecfc4d2e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span></a>
+                                                <a href="/cdn-cgi/l/email-protection#bad0d5d4dfc9faddd7dbd3d694d9d5d7"><span
+                                                        class="__cf_email__"
+                                                        data-cfemail="a1cbcecfc4d2e1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span></a>
                                             </h6>
                                         </div>
                                     </div>
                                 </div>
-            
+
                                 <div class="social-widget">
                                     <h6 class="text-white mb20">Follow us on social media</h6>
                                     <div class="social-style1">
@@ -249,21 +276,24 @@
             <a class="scrollToHome" href="#"><i class="fas fa-angle-up"></i></a>
         </div>
     </div>
-        
-        <script src="{% static 'jones/js/jquery-3.6.4.min.js' %}"></script>
-        <script src="{% static 'jones/js/jquery-migrate-3.0.0.min.js' %}"></script>
-        <script src="{% static 'jones/js/popper.min.js' %}"></script>
-        <script src="{% static 'jones/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'jones/js/bootstrap-select.min.js' %}"></script>
-        <script src="{% static 'jones/js/jquery.mmenu.all.js' %}"></script>
-        <script src="{% static 'jones/js/ace-responsive-menu.js' %}"></script>
-        <script src="{% static 'jones/js/jquery-scrolltofixed-min.js' %}"></script>
-        <script src="{% static 'jones/js/wow.min.js' %}"></script>
-        <script src="{% static 'jones/js/owl.js' %}"></script>
-        <script src="{% static 'jones/js/parallax.js' %}"></script>
-        <script src="{% static 'jones/js/pricing-slider.js' %}"></script>
-        
-        <script src="{% static 'jones/js/script.js' %}"></script>
-        </body>
-        
-        </html>
+
+    <script src="{% static 'jones/js/jquery-3.6.4.min.js' %}"></script>
+    <script src="{% static 'jones/js/jquery-migrate-3.0.0.min.js' %}"></script>
+    <script src="{% static 'jones/js/popper.min.js' %}"></script>
+    <script src="{% static 'jones/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'jones/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'jones/js/jquery.mmenu.all.js' %}"></script>
+    <script src="{% static 'jones/js/ace-responsive-menu.js' %}"></script>
+    <script src="{% static 'jones/js/jquery-scrolltofixed-min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"
+        integrity="sha512-IsNh5E3eYy3tr/JiX2Yx4vsCujtkhwl7SLqgnwLNgf04Hrt9BT9SXlLlZlWx+OK4ndzAoALhsMNcCmkggjZB1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="{% static 'jones/js/wow.min.js' %}"></script>
+    <script src="{% static 'jones/js/owl.js' %}"></script>
+    <script src="{% static 'jones/js/parallax.js' %}"></script>
+    <!-- <script src="{% static 'jones/js/pricing-slider.js' %}"></script> -->
+
+    <script src="{% static 'jones/js/script.js' %}"></script>
+</body>
+
+</html>

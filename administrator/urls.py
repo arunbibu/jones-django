@@ -17,7 +17,9 @@ urlpatterns = [
          views.home_hero_banner_update, name='home-hero-banner-update'),
     path('home/hero-banner/<int:id>/delete/',
          views.home_hero_banner_delete, name='home-hero-banner-delete'),
-    # hero-banner
+    # meta tag
+    path('meta-tags/', views.meta_tags, name='meta-tags'),
+    # testimonials
     path('home/testimonial/', views.testimonials, name='testimonial'),
     path('home/testimonial/<int:id>/list/',
          views.testimonials_list, name='testimonial-list'),

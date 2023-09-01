@@ -1,0 +1,52 @@
+{% extends 'administrator/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row align-items-center pb40">
+    <div class="col-xxl-3">
+        <div class="dashboard_title_area">
+            <h2>Tag Manager</h2>
+            <p class="text">Lorem ipsum dolor sit.</p>
+        </div>
+    </div>
+</div>
+<div class="row" id="add-data">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <form class="row g-3 justify-content-center form-style1" action="{% url 'meta-tags' %}" method="POST"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            {% if meta_tags %}
+            {% for i in meta_tags %}
+            <div class="col-md-12">
+                <label class="form-label fw600 dark-color">Meta Tags</label>
+                <textarea type="text" class="form-control" placeholder="Meta Tags" name="meta-tag-tags" style="min-height: 200px;" value="{{i.meta_tag}}"></textarea>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label fw600 dark-color">Other codes and plugin</label>
+                <textarea type="text" class="form-control" placeholder="Other Codes" name="meta-tag-other" style="min-height: 200px;" value="{{i.other_contet}}"></textarea>
+            </div>
+            {% endfor %}
+            {% else %}
+            
+            <div class="col-md-12">
+                <label class="form-label fw600 dark-color">Meta Tags</label>
+                <textarea type="text" class="form-control" placeholder="Meta Tags" name="meta-tag-tags" style="min-height: 200px;" value=""></textarea>
+            </div>
+            <div class="col-md-12">
+                <label class="form-label fw600 dark-color">Other codes and plugin</label>
+                <textarea type="text" class="form-control" placeholder="Other Codes" name="meta-tag-other" style="min-height: 200px;" value=""></textarea>
+            </div>
+            {% endif %}
+
+            <!-- end col -->
+            <div class="col-12 d-flex justify-content-center">
+              <button class="ud-btn btn-thm-border mb25 me-4" type="submit">Submit</button>
+            </div>
+            <!-- end col -->
+          </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -37,7 +37,19 @@
 
 <section class="pb90 pb30-md">
   <div class="container">
+    <div class="main-title text-center mb-0">
+      <h2 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+      <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id quibusdam beatae quod
+        perferendis qui? Exercitationem expedita suscipit similique blanditiis ipsum!</p>
+    </div>
     <div class="row">
+      <div class="col-12 d-flex justify-content-center align-items-center wow fadeInUp pb-5" data-wow-delay="100ms">
+        <div class="ud-btn btn-thm tab-click" style="cursor: pointer;" data-id="#owner-tab">For Owners</div>
+        <div class="ud-btn btn-thm tab-click" style="cursor: pointer;margin-left: 30px;" data-id="#tenent-tab">For
+          Tenents</div>
+      </div>
+    </div>
+    <div class="row tab-cont" id="owner-tab">
       <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
         <div class="about-box2">
           <h3 class="title">For Owners<br class="d-none d-xl-block" /></h3>
@@ -86,6 +98,61 @@
               <h6 class="subtitle">Quarterly Property Audit</h6>
               <p class="iconbox-text">Our diligent oversight includes regular quarterly audits,
                 ensuring financial transparency and property compliance for your peace of mind.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row tab-cont" id="tenent-tab" style="display: none;">
+      <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
+        <div class="about-box2">
+          <h3 class="title">For Tenents<br class="d-none d-xl-block" /></h3>
+          <p class="text fz15">
+            JAM mediates landlords and tenants, upholding privacy and promptly
+            handling property matters with professionalism.
+          </p>
+          <a href="{% url 'contact' %}" class="ud-btn btn-thm">Contact Us<i class="fal fa-arrow-right-long"></i></a>
+          <img class="img-1" src="{% static 'jones/images/about/home6-about-1.png' %}" alt />
+        </div>
+      </div>
+      <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-search-1"></span>
+              <h3 class="title mb-1">01</h3>
+              <h6 class="subtitle">Hassle-free transaction:</h6>
+              <p class="iconbox-text">We ensure that the lease amount is returned 2 days prior to
+                the end of the lease tenure, eliminating unnecessary waiting periods.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-chat"></span>
+              <h3 class="title mb-1">02</h3>
+              <h6 class="subtitle">Property Maintenance</h6>
+              <p class="iconbox-text">We ensure timely upkeep, preserving property value and
+                preventing expensive repairs through regular maintenance and quick issue
+                resolution.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-bird-house"></span>
+              <h3 class="title mb-1">03</h3>
+              <h6 class="subtitle">Legal Compliance</h6>
+              <p class="iconbox-text">JAM ensures that rental properties are compliant with local and
+                state laws with notarized agreements, providing tenants with a safe and legal living
+                environment.</p>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="iconbox-style6">
+              <span class="icon flaticon-house-1"></span>
+              <h3 class="title mb-1">04</h3>
+              <h6 class="subtitle">Responsive Maintenance and Repairs</h6>
+              <p class="iconbox-text">Tenants enjoy swift and efficient maintenance
+                with our trusted contractor network, ensuring a comfortable living space.</p>
             </div>
           </div>
         </div>
@@ -190,16 +257,6 @@
                       is a lot easier than it sounds. <br />
                     </p>
                   </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour"><button class="accordion-button collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
-                    aria-controls="collapseFour">Can I pay my own taxes and insurance?</button></h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">It doesn’t matter how organized you are — a surplus of toys will always
-                    ensure your house</div>
                 </div>
               </div>
             </div>
@@ -514,7 +571,7 @@
     <div class="row">
       <div class="col-lg-6 m-auto wow fadeInUp" data-wow-delay="00ms">
         <div class="main-title text-start text-md-center">
-          <h2 class="title">Blog</h2>
+          <h2 class="title">Real Estate Guide</h2>
           <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
         </div>
       </div>
@@ -637,11 +694,13 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingOne">
                   <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">What is the security for the tenant’s money/ lease amount?</button>
+                    aria-expanded="true" aria-controls="collapseOne">What is the security for the tenant’s money/ lease
+                    amount?</button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                   data-parent="#accordionExample">
-                  <div class="accordion-body">We prioritize complete transparency in our operations. To uphold this, we facilitate a
+                  <div class="accordion-body">We prioritize complete transparency in our operations. To uphold this, we
+                    facilitate a
                     direct in-person meeting between you and the property owner. Additionally, for tenant
                     security, we issue a Post Dated Cheque (PDC) at the agreement's inception, covering the
                     entirety of the tenant's payment. This PDC is set for 2 days before the tenure concludes,
@@ -652,11 +711,13 @@
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTwo">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What are the Service charges?</button>
+                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What are the Service
+                    charges?</button>
                 </h2>
                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                   data-parent="#accordionExample">
-                  <div class="accordion-body">We have a modest service charge in place to enhance your leasing experience. For a
+                  <div class="accordion-body">We have a modest service charge in place to enhance your leasing
+                    experience. For a
                     lease tenure of 2 years, a nominal fee of Rs 10,000 will be applicable. Similarly, for a 3-year
                     lease tenure, the service charge will be Rs 15,000. This small investment ensures the
                     smooth facilitation of your leasing process, covering administrative support, legal
@@ -666,25 +727,15 @@
               <div class="accordion-item active">
                 <h2 class="accordion-header" id="headingThree">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Since when is the company operational?</button>
+                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Since when is
+                    the company operational?</button>
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
                   data-parent="#accordionExample">
-                  <div class="accordion-body">We have been in operation since 2007. In addition, we have diversified into various
+                  <div class="accordion-body">We have been in operation since 2007. In addition, we have diversified
+                    into various
                     sectors such as wealth management, home interiors, and construction. Specifically, Jones
                     Asset Management commenced its operations in October 2021.</div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingFour">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Can I pay my own
-                    taxes and insurance?</button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                  data-parent="#accordionExample">
-                  <div class="accordion-body">It doesn’t matter how organized you are — a surplus of toys will always
-                    ensure your house</div>
                 </div>
               </div>
             </div>
@@ -712,7 +763,7 @@
           <div class="cta-style2">
             <h2 class="cta-title">Start Listing or Buying a Property With Realton</h2>
             <p class="cta-text">Talk to our experts or Browse through more properties.</p>
-            <a href="#" class="ud-btn btn-dark mt10">Learn More<i class="fal fa-arrow-right-long"></i></a>
+            <a href="{% url 'contact' %}" class="ud-btn btn-dark mt10">Learn More<i class="fal fa-arrow-right-long"></i></a>
           </div>
         </div>
       </div>

@@ -363,4 +363,11 @@
     });
 
 
+    // tab section
+    $('.tab-click').click(function(){
+        $('.tab-cont').hide();
+        const id = $(this).attr('data-id');
+        $(`${id}`).show();
+    });
+
 })(window.jQuery);

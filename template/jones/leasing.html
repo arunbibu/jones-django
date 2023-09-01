@@ -1,0 +1,60 @@
+{% extends 'jones/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="p-4 mb-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcumb-style1">
+                    <div class="breadcumb-list">
+                        <a href="{% url 'home' %}">Home</a>
+                        <a href="javascript:void(0);">Leasing</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- UI Elements Sections -->
+<section class="breadcumb-section2 p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title">About Us</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our About Area -->
+<section class="our-about pb90">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+            <div class="col-lg-6">
+                <h2>At JAM, our goal is to simplify the leasing process for both property owners and
+                    prospective
+                    tenants. </h2>
+            </div>
+            <div class="col-lg-6">
+                <p class="text mb25">
+                    With our extensive network and in-depth market knowledge of Bengaluru, we match
+                    qualified tenants with the perfect properties, ensuring a seamless and efficient experience
+                    for all parties involved.
+                </p>
+                <p class="text mb55">
+                    We understand that each property is unique, and we work diligently to showcase its features
+                    and amenities, attracting the right tenants who will truly appreciate and care for your
+                    investment. Whether you're a property owner looking to fill a vacancy or a tenant searching
+                    for your ideal home, JAM's Leasing services are designed to save you time, reduce stress,
+                    and make the leasing journey a smooth and successful one. Join us today and let us take
+                    care of the details while you enjoy the rewards of property ownership or find the perfect
+                    place to call home. The best part is that the tenants get their leasing amount back 2 days
+                    prior to the end of the leasing tenure, to ensure zero hindrance in transactions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

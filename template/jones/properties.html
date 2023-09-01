@@ -1,0 +1,116 @@
+{% extends 'jones/base.html' %}
+{% load static %}
+{% block content %}
+<div class="p-4 mb-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcumb-style1">
+                    <div class="breadcumb-list">
+                        <a href="{% url 'home' %}">Home</a>
+                        <a href="javascript:void(0);">List a Property</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <img class="home8-map contact-page" loading="lazy" src="http://via.placeholder.com/1920x900"
+        title="London Eye, London, United Kingdom" aria-label="London Eye, London, United Kingdom"
+        style="object-fit: cover;" />
+</section>
+<section>
+    <div class="container">
+        <div class="row d-flex align-items-center">
+            <div class="col-lg-5 position-relative">
+                <div class="home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white">
+                    <h4 class="form-title mb25">Have questions? Get in touch!</h4>
+                    <form class="form-style1">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="mb20">
+                                    <label class="heading-color ff-heading fw600 mb10">Full Name</label>
+                                    <input type="text" class="form-control" placeholder="Your Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb20">
+                                    <label class="heading-color ff-heading fw600 mb10">Phone Number</label>
+                                    <input type="tel" class="form-control" placeholder="Your Name">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb20">
+                                    <label class="heading-color ff-heading fw600 mb10">Email</label>
+                                    <input type="email" class="form-control" placeholder="Your Name">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb20">
+                                    <label class="heading-color ff-heading fw600 mb10">Property Locality</label>
+                                    <input type="text" class="form-control" placeholder="Property Locality">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb20">
+                                    <label class="heading-color ff-heading fw600 mb10">Property Type</label>
+                                    <input type="text" class="form-control" placeholder="Property Type">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb20">
+                                    <label class="heading-color ff-heading fw600 mb10">BHK</label>
+                                    <input type="text" class="form-control" placeholder="BHK">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="d-grid">
+                                    <a class="ud-btn btn-thm" href="#">Submit<i
+                                            class="fal fa-arrow-right-long"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5 offset-lg-2">
+                <div class="">
+                    <h2 class="mb30 text-capitalize">We’d love to hear <br class="d-none d-lg-block">from you.</h2>
+                    <p class="text">We are here to answer any question you may have. As a partner of corporates, realton
+                        has
+                        more than 9,000 offices of all sizes and all potential of session.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pt0 pb90 pb10-md">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 m-auto wow fadeInUp" data-wow-delay="300ms"
+                style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+                <div class="main-title text-center">
+                    <h2 class="title">Visit Our Office</h2>
+                    <p class="paragraph">Realton has more than 9,000 offices of all sizes and all potential of session.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center ">
+            <div class="col-sm-6 col-lg-4 wow fadeInLeft" data-wow-delay="00ms"
+                style="visibility: visible; animation-delay: 0ms; animation-name: fadeInLeft;">
+                <div class="iconbox-style8 text-center">
+                    <div class="icon"><img src="{% static 'jones/images/icon/paris.svg' %}" alt=""></div>
+                    <div class="iconbox-content">
+                        <h4 class="title">Paris</h4>
+                        <p class="text mb-1">1301 2nd Ave, Seattle, WA 98101</p>
+                        <h6 class="mb10">(315) 905-2321</h6>
+                        <a class="text-decoration-underline" href="">Open Google Map</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

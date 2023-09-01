@@ -1,0 +1,55 @@
+{% extends 'jones/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="p-4 mb-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcumb-style1">
+                    <div class="breadcumb-list">
+                        <a href="{% url 'home' %}">Home</a>
+                        <a href="javascript:void(0);">Sell</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+<!-- UI Elements Sections -->
+<section class="breadcumb-section2 p-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="title">Sell</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Our About Area -->
+<section class="our-about pb90">
+    <div class="container">
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+            <div class="col-lg-6">
+                <h2>Own a property in Bengaluru and looking to sell it for a great return? Worry not. When it
+                    comes to selling your property, our expert team is here to guide you through every step of
+                    the process. </h2>
+            </div>
+            <div class="col-lg-6">
+                <p class="text mb25">We understand that selling a property can be a significant decision, and our
+                    tailored approach ensures that you achieve the best possible outcome. From market
+                    analysis and pricing strategy to staging, marketing, and negotiations, JAM's experienced
+                    professionals are dedicated to maximizing the value of your property and securing a
+                    seamless sale.</p>
+                <p class="text mb55">Our comprehensive support, combined with our in-depth knowledge of the real estate
+                    market, allows you to navigate the selling journey with confidence and peace of mind. Trust
+                    JAM to be your partner in achieving a successful and profitable property sale. Your goals are
+                    our priority, and we're committed to delivering results that exceed your expectations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

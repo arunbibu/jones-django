@@ -95,8 +95,10 @@
         <div class="dashboard__sidebar d-none d-lg-block">
           <div class="dashboard_sidebar_list">
             <div class="sidebar_list_item">
-              <a href="page-dashboard.html" class="items-center -is-active"><i
+              <a href="{% url 'dashboard' %}" class="items-center "><i
                   class="flaticon-discovery mr15"></i>Dashboard</a>
+              <a href="{% url 'meta-tags' %}" class="items-center"><i
+                  class="flaticon-discovery mr15"></i>Tag Manager</a>
             </div>
             <p class="fz15 fw400 ff-heading mt30">Home</p>
             <div class="sidebar_list_item ">
@@ -104,7 +106,7 @@
               <a href="{% url 'testimonial' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Testimonials</a>
             </div>
             <div class="sidebar_list_item ">
-              <a href="{% url 'logout' %}" class="items-center -is-active"><i class="flaticon-exit mr15"></i>Logout</a>
+              <a href="{% url 'logout' %}" class="items-center"><i class="flaticon-exit mr15"></i>Logout</a>
             </div>
           </div>
         </div>

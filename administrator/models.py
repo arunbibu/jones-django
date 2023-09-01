@@ -35,3 +35,7 @@ class Testimonials(models.Model):
 
     def __str__(self):
         return (self.name)
+    
+class TagManager(models.Model):
+    meta_tag = models.TextField()
+    other_contet = models.TextField()
