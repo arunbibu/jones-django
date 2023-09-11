@@ -3681,7 +3681,7 @@ h2 {
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
-  height: 700px;
+  height: 500px;
   position: relative;
 }
 .slider-slide-item:before {
@@ -3697,7 +3697,7 @@ h2 {
 }
 @media (max-width: 1199.98px) {
   .slider-slide-item {
-    height: 500px;
+    height: 400px;
   }
 }
 

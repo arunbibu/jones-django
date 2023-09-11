@@ -20,7 +20,8 @@ class HomeHeroBanner(models.Model):
     image = ResizedImageField(upload_to=thumb_upload,
                               force_format="WEBP", quality=100, blank=True)
     slug = models.CharField(default="slug", max_length=255)
-
+    button = models.CharField(default="button", max_length=255)
+    
 
 class Testimonials(models.Model):
     def thumb_upload(instance, filename):

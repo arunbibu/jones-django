@@ -101,6 +101,10 @@
               <label class="form-label fw600 dark-color">Slug</label>
               <input class="form-control" type="text" placeholder="Your Slug" name="banner-slug" />
             </div>
+            <div class="col-md-6">
+              <label class="form-label fw600 dark-color">Button Name</label>
+              <input class="form-control" type="text" placeholder="Button Name" name="banner-button" />
+            </div>
 
             <!-- end col -->
             <div class="col-12 d-flex justify-content-center">
@@ -132,6 +136,10 @@
             <div class="col-md-6">
               <label class="form-label fw600 dark-color">Slug</label>
               <input class="form-control" type="text" placeholder="Your Slug" name="banner-slug" id="banner-slug" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label fw600 dark-color">Button Name</label>
+              <input class="form-control" type="text" placeholder="Your Slug" name="banner-button" id="banner-button" />
             </div>
 
             <!-- end col -->
@@ -216,6 +224,7 @@
             $('#banner-heading').val(data.result[0].heading)
             $('#banner-tagline').val(data.result[0].tagline)
             $('#banner-slug').val(data.result[0].slug)
+            $('#banner-button').val(data.result[0].button)
             $('#update-data form').attr("action", "{% url 'home-hero-banner-update' id=12345 %}".replace(/12345/, data.result[0].id.toString()))
           }
         });

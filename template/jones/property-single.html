@@ -1,6 +1,21 @@
 {% extends 'jones/base.html' %}
 {% load static %}
 {% block content %}
+
+<div class="p-4 mb-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcumb-style1">
+                    <div class="breadcumb-list">
+                        <a href="{% url 'home' %}">Home</a>
+                        <a href="javascript:void(0);">Find a property</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Property All Lists -->
 <section class="pt60 pb90 bgc-f7">
     <div class="container">
@@ -10,18 +25,18 @@
                     <h2 class="sp-lg-title">3 BHK Residential Apartment for Lease</h2>
                     <div class="pd-meta mb15 d-md-flex align-items-center">
                         <p class="text fz15 mb-0 bdrr1 pr10 bdrrn-sm">Kanagapura. Bangalore, India</p>
-                        <a class="ff-heading text-thm fz15 bdrr1 pr10 ml0-sm ml10 bdrrn-sm" href=""><i
-                                class="fas fa-circle fz10 pe-2"></i>For rent</a>
-                        <a class="ff-heading bdrr1 fz15 pr10 ml10 ml0-sm bdrrn-sm" href=""><i
-                                class="far fa-clock pe-2"></i>1 years ago</a>
-                        <a class="ff-heading ml10 ml0-sm fz15" href=""><i
-                                class="flaticon-fullscreen pe-2 align-text-top"></i>8721</a>
+                        <div class="ff-heading text-thm fz15 bdrr1 pr10 ml0-sm ml10 bdrrn-sm"><i
+                                class="fas fa-circle fz10 pe-2"></i>For rent</div>
+                        <div class="ff-heading bdrr1 fz15 pr10 ml10 ml0-sm bdrrn-sm"><i class="far fa-clock pe-2"></i>1
+                            year ago</div>
+                        <div class="ff-heading ml10 ml0-sm fz15"><i
+                                class="flaticon-fullscreen pe-2 align-text-top"></i>8721</div>
                     </div>
                     <div class="property-meta d-flex align-items-center">
-                        <a class="text fz15" href=""><i class="flaticon-bed pe-2 align-text-top"></i>3 bed</a>
-                        <a class="text ml20 fz15" href=""><i class="flaticon-shower pe-2 align-text-top"></i>3 bath</a>
-                        <a class="text ml20 fz15" href=""><i class="flaticon-expand pe-2 align-text-top"></i>1200
-                            sqft</a>
+                        <div class="text fz15"><i class="flaticon-bed pe-2 align-text-top"></i>3 bed</div>
+                        <div class="text ml20 fz15"><i class="flaticon-shower pe-2 align-text-top"></i>3 bath</div>
+                        <div class="text ml20 fz15"><i class="flaticon-expand pe-2 align-text-top"></i>1200
+                            sqft</div>
                     </div>
                 </div>
             </div>
@@ -35,7 +50,6 @@
                             <!-- <a class="icon" href=""><span class="flaticon-printer"></span></a> -->
                         </div>
                         <h3 class="price mb-0">&#8377;958,000</h3>
-                        <p class="text space fz15">&#8377;2,300/sq ft</p>
                     </div>
                 </div>
             </div>
@@ -187,14 +201,12 @@
                         <div class="col-md-6 col-xl-4">
                             <div class="d-flex justify-content-between">
                                 <div class="pd-list">
-                                    <p class="fw600 mb10 ff-heading dark-color">Property ID</p>
                                     <p class="fw600 mb10 ff-heading dark-color">Price</p>
                                     <p class="fw600 mb10 ff-heading dark-color">Property Size</p>
                                     <p class="fw600 mb10 ff-heading dark-color">Bathrooms</p>
                                     <p class="fw600 mb-0 ff-heading dark-color">Bedrooms</p>
                                 </div>
                                 <div class="pd-list">
-                                    <p class="text mb10">RT48</p>
                                     <p class="text mb10">&#8377;252,000</p>
                                     <p class="text mb10">1500 Sq Ft</p>
                                     <p class="text mb10">3</p>
@@ -205,15 +217,11 @@
                         <div class="col-md-6 col-xl-4 offset-xl-2">
                             <div class="d-flex justify-content-between">
                                 <div class="pd-list">
-                                    <p class="fw600 mb10 ff-heading dark-color">Garage</p>
-                                    <p class="fw600 mb10 ff-heading dark-color">Garage Size</p>
                                     <p class="fw600 mb10 ff-heading dark-color">Year Built</p>
                                     <p class="fw600 mb10 ff-heading dark-color">Property Type</p>
                                     <p class="fw600 mb-0 ff-heading dark-color">Property Status</p>
                                 </div>
                                 <div class="pd-list">
-                                    <p class="text mb10">2</p>
-                                    <p class="text mb10">200 SqFt</p>
                                     <p class="text mb10">2022</p>
                                     <p class="text mb10">Apartment</p>
                                     <p class="text mb-0">For Sale</p>
@@ -308,56 +316,70 @@
                     </div>
                 </div>
                 <div class="ui-content">
-                    <h4 class="title">FAQ</h4>
+                    <h4 class="title">FAQs</h4>
+
                     <div class="accordion-style1 mb-4 mb-lg-5">
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseOne" aria-expanded="true"
-                                        aria-controls="collapseOne">Can a home depreciate in value?</button>
+                                        aria-controls="collapseOne">What is the security for the tenant’s money/ lease
+                                        amount?</button>
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                                     data-parent="#accordionExample">
-                                    <div class="accordion-body">It doesn’t matter how organized you are — a surplus of
-                                        toys will always ensure your house</div>
+                                    <div class="accordion-body">We prioritize complete transparency in our operations.
+                                        To uphold this, we
+                                        facilitate a
+                                        direct in-person meeting between you and the property owner. Additionally, for
+                                        tenant
+                                        security, we issue a Post Dated Cheque (PDC) at the agreement's inception,
+                                        covering the
+                                        entirety of the tenant's payment. This PDC is set for 2 days before the tenure
+                                        concludes,
+                                        enabling a smooth vacating process. Rest assured, the agreement will be executed
+                                        on
+                                        legally valid Stamp Paper.</div>
                                 </div>
                             </div>
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingTwo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseTwo" aria-expanded="false"
-                                        aria-controls="collapseTwo">Is an older home as good a value as a new
-                                        home?</button>
+                                        aria-controls="collapseTwo">What are the Service
+                                        charges?</button>
                                 </h2>
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                     data-parent="#accordionExample">
-                                    <div class="accordion-body">It doesn’t matter how organized you are — a surplus of
-                                        toys will always ensure your house</div>
+                                    <div class="accordion-body">We have a modest service charge in place to enhance your
+                                        leasing
+                                        experience. For a
+                                        lease tenure of 2 years, a nominal fee of Rs 10,000 will be applicable.
+                                        Similarly, for a 3-year
+                                        lease tenure, the service charge will be Rs 15,000. This small investment
+                                        ensures the
+                                        smooth facilitation of your leasing process, covering administrative support,
+                                        legal
+                                        documentation, and comprehensive tenant services throughout the lease period.
+                                    </div>
                                 </div>
                             </div>
                             <div class="accordion-item active">
                                 <h2 class="accordion-header" id="headingThree">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#collapseThree" aria-expanded="false"
-                                        aria-controls="collapseThree">What is a broker?</button>
+                                        aria-controls="collapseThree">Since when is
+                                        the company operational?</button>
                                 </h2>
                                 <div id="collapseThree" class="accordion-collapse collapse show"
                                     aria-labelledby="headingThree" data-parent="#accordionExample">
-                                    <div class="accordion-body">It doesn’t matter how organized you are — a surplus of
-                                        toys will always ensure your house</div>
-                                </div>
-                            </div>
-                            <div class="accordion-item">
-                                <h2 class="accordion-header" id="headingFour">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseFour" aria-expanded="false"
-                                        aria-controls="collapseFour">Can I pay my own taxes and insurance?</button>
-                                </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                                    data-parent="#accordionExample">
-                                    <div class="accordion-body">It doesn’t matter how organized you are — a surplus of
-                                        toys will always ensure your house</div>
+                                    <div class="accordion-body">We have been in operation since 2007. In addition, we
+                                        have diversified
+                                        into various
+                                        sectors such as wealth management, home interiors, and construction.
+                                        Specifically, Jones
+                                        Asset Management commenced its operations in October 2021.</div>
                                 </div>
                             </div>
                         </div>
@@ -367,7 +389,7 @@
             <div class="col-lg-4">
                 <div class="column">
                     <div class="default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white position-relative">
-                        <h4 class="form-title mb5">Schedule a tour</h4>
+                        <h4 class="form-title mb5">Get a Callback</h4>
                         <p class="text">Choose your preferred day</p>
                         <div class="ps-navtab">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -387,19 +409,9 @@
                                     aria-labelledby="pills-inperson-tab">
                                     <form class="form-style1">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="mb20">
-                                                    <input type="text" class="form-control" placeholder="Time">
-                                                </div>
-                                            </div>
                                             <div class="col-lg-12">
                                                 <div class="mb20">
                                                     <input type="text" class="form-control" placeholder="Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="mb20">
-                                                    <input type="text" class="form-control" placeholder="Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
@@ -407,10 +419,9 @@
                                                     <input type="email" class="form-control" placeholder="Email">
                                                 </div>
                                             </div>
-                                            <div class="col-md-12">
-                                                <div class="mb10">
-                                                    <textarea cols="30" rows="4"
-                                                        placeholder="Enter Your Messages"></textarea>
+                                            <div class="col-lg-12">
+                                                <div class="mb20">
+                                                    <input type="text" class="form-control" placeholder="Phone">
                                                 </div>
                                             </div>
                                             <div

@@ -1,8 +1,26 @@
 {% extends 'jones/base.html' %}
 {% load static %}
 {% block content %}
+<div class="p-4 mb-5" style="background-color: #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcumb-style1">
+                    <div class="breadcumb-list">
+                        <a href="{% url 'home' %}">Home</a>
+                        <a href="javascript:void(0);">Real Estate Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <section class="our-blog">
     <div class="container">
+        <div class="main-title text-center">
+            <h2 class="title">Real Estate Guide</h2>
+            <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
+          </div>
         <div class="row wow fadeInUp" data-wow-delay="300ms"
             style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
             <div class="col-lg-8">
@@ -154,23 +172,7 @@
             <div class="col-lg-4">
                 <div class="blog-sidebar">
                     <div class="sidebar-widget mb30">
-                        <div class="search_area">
-                            <input type="text" class="form-control" placeholder="What are you looking for?" />
-                            <label><span class="flaticon-search"></span></label>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget mb30">
-                        <h6 class="widget-title">Categories</h6>
-                        <div class="category-list mt20">
-                            <a href="">Houses</a>
-                            <a href="">Apartments</a>
-                            <a href="">Office</a>
-                            <a href="">Villa</a>
-                            <a href="">Townhome</a>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget mb30">
-                        <h6 class="widget-title">Latest Posts</h6>
+                        <h6 class="widget-title">Top Properties </h6>
                         <div class="list-news-style d-flex align-items-center mt20 mb20">
                             <div class="news-img flex-shrink-0">
                                 <img src="{% static 'jones/images/blog/blog-s-3.jpg' %}" alt="" />
@@ -203,16 +205,6 @@
                                 </p>
                                 <a class="body-light-color" href="">2 Jul 2022</a>
                             </div>
-                        </div>
-                    </div>
-                    <div class="sidebar-widget mb30 pb20">
-                        <h6 class="widget-title">Popular Tags</h6>
-                        <div class="tag-list mt20">
-                            <a href="">For Sale</a>
-                            <a href="">House</a>
-                            <a href="">Realton</a>
-                            <a href="">Apartments</a>
-                            <a href="">Villa</a>
                         </div>
                     </div>
                 </div>

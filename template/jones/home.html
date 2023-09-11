@@ -15,7 +15,7 @@
               <h4 class="h1 slider-subtitle text-white">{{banner.heading}}</h4>
               <p class="mb30 slider-text text-white" style="max-width: 550px;">{{banner.tagline}}</p>
               <div class="slider-btn-block">
-                <a href="{{banner.slug}}" class="ud-btn btn-white slider-btn">Know More<i
+                <a href="{{banner.slug}}" class="ud-btn btn-white slider-btn">{{banner.button}}<i
                     class="fal fa-arrow-right-long"></i></a>
               </div>
             </div>
@@ -46,7 +46,7 @@
       <div class="col-12 d-flex justify-content-center align-items-center wow fadeInUp pb-5" data-wow-delay="100ms">
         <div class="ud-btn btn-thm tab-click" style="cursor: pointer;" data-id="#owner-tab">For Owners</div>
         <div class="ud-btn btn-thm tab-click" style="cursor: pointer;margin-left: 30px;" data-id="#tenent-tab">For
-          Tenents</div>
+          Tenants </div>
       </div>
     </div>
     <div class="row tab-cont" id="owner-tab">
@@ -64,7 +64,7 @@
       <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
         <div class="row">
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-search-1"></span>
               <h3 class="title mb-1">01</h3>
               <h6 class="subtitle">Time Saving</h6>
@@ -73,7 +73,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-chat"></span>
               <h3 class="title mb-1">02</h3>
               <h6 class="subtitle">Property Maintenance</h6>
@@ -83,7 +83,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-bird-house"></span>
               <h3 class="title mb-1">03</h3>
               <h6 class="subtitle">Market Insights</h6>
@@ -92,7 +92,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-house-1"></span>
               <h3 class="title mb-1">04</h3>
               <h6 class="subtitle">Quarterly Property Audit</h6>
@@ -106,10 +106,11 @@
     <div class="row tab-cont" id="tenent-tab" style="display: none;">
       <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
         <div class="about-box2">
-          <h3 class="title">For Tenents<br class="d-none d-xl-block" /></h3>
-          <p class="text fz15">
-            JAM mediates landlords and tenants, upholding privacy and promptly
-            handling property matters with professionalism.
+          <h3 class="title">For Tenants <br class="d-none d-xl-block" /></h3>
+          <p class="text fz15"sty>
+            JAM mediates landlords and tenants,
+            upholding privacy and <br/>promptly
+            handling property matters<br/> with professionalism.
           </p>
           <a href="{% url 'contact' %}" class="ud-btn btn-thm">Contact Us<i class="fal fa-arrow-right-long"></i></a>
           <img class="img-1" src="{% static 'jones/images/about/home6-about-1.png' %}" alt />
@@ -118,7 +119,7 @@
       <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
         <div class="row">
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-search-1"></span>
               <h3 class="title mb-1">01</h3>
               <h6 class="subtitle">Hassle-free transaction:</h6>
@@ -127,7 +128,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-chat"></span>
               <h3 class="title mb-1">02</h3>
               <h6 class="subtitle">Property Maintenance</h6>
@@ -137,7 +138,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-bird-house"></span>
               <h3 class="title mb-1">03</h3>
               <h6 class="subtitle">Legal Compliance</h6>
@@ -147,7 +148,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 260px;">
               <span class="icon flaticon-house-1"></span>
               <h3 class="title mb-1">04</h3>
               <h6 class="subtitle">Responsive Maintenance and Repairs</h6>
@@ -179,7 +180,7 @@
               <img class="w-100" src="{% static 'jones/images/icon/property-buy-2.svg' %}" alt />
             </div>
             <div class="iconbox-content">
-              <h4 class="title">Lease a property</h4>
+              <h4 class="title">Find a property</h4>
               <p class="text">Experience seamless leasing with JAM. Choose from curated properties, enjoy clear terms,
                 online convenience, and responsive maintenance. Lease confidently for a comfortable and
                 secure living environment.</p>
@@ -197,7 +198,7 @@
               <h4 class="title">List a Property</h4>
               <p class="text">Unlock the potential of your property with our seamless property listing service, where
                 turning your space into a valuable asset has never been easier.</p>
-              <a href="{% url 'listing' %}" class="ud-btn btn-thm3">Place an ad<i
+              <a href="{% url 'properties' %}" class="ud-btn btn-thm3">List Now<i
                   class="fal fa-arrow-right-long"></i></a>
             </div>
           </div>
@@ -279,17 +280,19 @@
       </div>
     </div>
     <div class="row d-none d-lg-flex">
-      <div class="col-lg-7">
+      <div class="col-lg-12">
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <div class="listing-style1">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-tag fz12">
-                  <span class="flaticon-electricity me-2"></span>FEATURED
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                </a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
                 </div>
-                <div class="list-price">&#8377; 180000</div>
-              </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
                 <p class="list-text">Kanagapura. Bangalore, India</p>
@@ -310,15 +313,17 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <div class="listing-style1">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-tag fz12">
-                  <span class="flaticon-electricity me-2"></span>FEATURED
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                </a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
                 </div>
-                <div class="list-price">&#8377; 180000</div>
-              </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
                 <p class="list-text">Kanagapura. Bangalore, India</p>
@@ -339,15 +344,17 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <div class="listing-style1">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-tag fz12">
-                  <span class="flaticon-electricity me-2"></span>FEATURED
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                </a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
                 </div>
-                <div class="list-price">&#8377; 180000</div>
-              </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
                 <p class="list-text">Kanagapura. Bangalore, India</p>
@@ -368,15 +375,17 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-6">
+          <div class="col-lg-4">
             <div class="listing-style1">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-tag fz12">
-                  <span class="flaticon-electricity me-2"></span>FEATURED
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                </a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
                 </div>
-                <div class="list-price">&#8377; 180000</div>
-              </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
                 <p class="list-text">Kanagapura. Bangalore, India</p>
@@ -397,30 +406,72 @@
               </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div class="listing-style6" style="height: calc(100% - 30px);">
-          <div class="list-thumb h-100">
-            <img class="w-100 h-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt=""
-              style="object-fit: cover;" />
-            <div class="list-meta">
-              <div class="icons">
-                <a href=""><span class="flaticon-like"></span></a>
-                <a href=""><span class="flaticon-new-tab"></span></a>
-                <a href=""><span class="flaticon-fullscreen"></span></a>
+          <div class="col-lg-4">
+            <div class="listing-style1">
+              <div class="list-thumb">
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                </a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                <p class="list-text">Kanagapura. Bangalore, India</p>
+                <div class="list-meta d-flex align-items-center">
+                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                </div>
+                <hr class="mt-2 mb-2" />
+                <div class="list-meta2 d-flex justify-content-between align-items-center">
+                  <span class="for-what">For Rent</span>
+                  <!--  <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>  -->
+                </div>
               </div>
             </div>
           </div>
-          <div class="list-content">
-            <div class="list-price mb-2">&#8377; 180000</div>
-            <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-            <p class="list-text">Kanagapura. Bangalore, India</p>
+          <div class="col-lg-4">
+            <div class="listing-style1">
+              <div class="list-thumb">
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                </a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+              <div class="list-content">
+                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                <p class="list-text">Kanagapura. Bangalore, India</p>
+                <div class="list-meta d-flex align-items-center">
+                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                </div>
+                <hr class="mt-2 mb-2" />
+                <div class="list-meta2 d-flex justify-content-between align-items-center">
+                  <span class="for-what">For Rent</span>
+                  <!--  <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>  -->
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="col-lg-12 d-flex justify-content-center align-items-center pb-5">
-        <a href="#" class="ud-btn btn-thm">View More<i class="fal fa-arrow-right-long"></i></a>
+        <a href="#" class="ud-btn btn-thm">Rent/Lease A Property <i class="fal fa-arrow-right-long"></i></a>
       </div>
     </div>
     <div class="row d-block d-lg-none">
@@ -429,12 +480,14 @@
           <div class="item">
             <div class="listing-style1">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-tag fz12">
-                  <span class="flaticon-electricity me-2"></span>FEATURED
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                </a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
                 </div>
-                <div class="list-price">&#8377; 180000</div>
-              </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
                 <p class="list-text">Kanagapura. Bangalore, India</p>
@@ -580,13 +633,11 @@
       <div class="col-sm-6 col-xl-4">
         <div class="blog-style1">
           <div class="blog-img">
-            <img class="w-100" src="{% static 'jones/images/blog/blog-1.jpg' %}" alt />
+            <a href="{% url 'real-estate-guide-single' %}">
+              <img class="w-100" src="{% static 'jones/images/blog/blog-1.jpg' %}" alt />
+            </a>
           </div>
           <div class="blog-content">
-            <div class="date">
-              <span class="month">July</span>
-              <span class="day">28</span>
-            </div>
             <a class="tag" href>Living Room</a>
             <h6 class="title mt-1"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
           </div>
@@ -595,13 +646,11 @@
       <div class="col-sm-6 col-xl-4">
         <div class="blog-style1">
           <div class="blog-img">
-            <img class="w-100" src="{% static 'jones/images/blog/blog-2.jpg' %}" alt />
+            <a href="{% url 'real-estate-guide-single' %}">
+              <img class="w-100" src="{% static 'jones/images/blog/blog-2.jpg' %}" alt />
+            </a>
           </div>
           <div class="blog-content">
-            <div class="date">
-              <span class="month">July</span>
-              <span class="day">28</span>
-            </div>
             <a class="tag" href>Living Room</a>
             <h6 class="title mt-1"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
           </div>
@@ -610,22 +659,24 @@
       <div class="col-lg-6 col-xl-4">
         <div class="blog-style1 d-block d-sm-flex align-items-center">
           <div class="blog-img flex-shrink-0">
-            <img class="w-100" src="{% static 'jones/images/blog/blog-s-1.jpg' %}" alt />
+            <a href="{% url 'real-estate-guide-single' %}">
+              <img class="w-100" src="{% static 'jones/images/blog/blog-s-1.jpg' %}" alt />
+            </a>
           </div>
           <div class="blog-content flex-grow-1 ms-3 pe-0 pt-0 pt15-xs">
             <a class="tag" href>Living Room</a>
             <h6 class="title fz14 mt-1 mb5"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
-            <a class="tag" href>June 15, 2022</a>
           </div>
         </div>
         <div class="blog-style1 d-block d-sm-flex align-items-center">
           <div class="blog-img flex-shrink-0">
-            <img class="w-100" src="{% static 'jones/images/blog/blog-s-2.jpg' %}" alt />
+            <a href="{% url 'real-estate-guide-single' %}">
+              <img class="w-100" src="{% static 'jones/images/blog/blog-s-2.jpg' %}" alt />
+            </a>
           </div>
           <div class="blog-content flex-grow-1 ms-3 pe-0 pt-0 pt15-xs">
             <a class="tag" href>Living Room</a>
             <h6 class="title fz14 mt-1 mb5"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
-            <a class="tag" href>June 15, 2022</a>
           </div>
         </div>
       </div>
@@ -689,6 +740,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
+          <div class="main-title text-center">
+            <h2>FAQ</h2>
+            <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, recusandae!</p>
+          </div>
           <div class="accordion-style1 mb-4 mb-lg-5">
             <div class="accordion" id="accordionExample">
               <div class="accordion-item">
@@ -746,28 +801,4 @@
   </div>
 </section>
 
-<section class="our-cta2 p0 px20">
-  <div class="cta-banner2 bgc-thm maxw1600 mx-auto pt100 pt50-md pb85 pb50-md px30-md bdrs12 position-relative">
-    <div class="img-box-5">
-      <img class="img-1 spin-right" src="{% static 'jones/images/about/element-1.png' %}" alt />
-    </div>
-    <div class="img-box-6">
-      <img class="img-1 spin-left" src="{% static 'jones/images/about/element-2.png' %}" alt />
-    </div>
-    <div class="cta-style2 d-none d-lg-block wow fadeInRight" data-wow-delay="300ms">
-      <img src="{% static 'jones/images/about/cta-img-1.png' %}" alt />
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-7 col-xl-5 wow fadeInUp" data-wow-delay="500ms">
-          <div class="cta-style2">
-            <h2 class="cta-title">Start Listing or Buying a Property With Realton</h2>
-            <p class="cta-text">Talk to our experts or Browse through more properties.</p>
-            <a href="{% url 'contact' %}" class="ud-btn btn-dark mt10">Learn More<i class="fal fa-arrow-right-long"></i></a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 {% endblock %}

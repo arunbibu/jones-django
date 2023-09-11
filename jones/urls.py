@@ -4,10 +4,10 @@ from . import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('properties/', views.listing, name='listing'),
-    path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
-    path('interiors/', views.interiors, name='interiors'),
+    path('find-a-property/', views.listing, name='listing'),
+    path('about-jones-asset-management/', views.about, name='about'),
+    path('contact-us/', views.contact, name='contact'),
+    path('jones-interiors/', views.interiors, name='interiors'),
     path('leasing/', views.leasing, name='leasing'),
     path('rental/', views.rental, name='rental'),
     path('sell/', views.sell, name='sell'),

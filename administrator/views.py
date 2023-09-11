@@ -61,9 +61,10 @@ def home_hero_banner(request):
             heading = request.POST['banner-heading']
             tagline = request.POST['banner-tagline']
             slug = request.POST['banner-slug']
+            button = request.POST['banner-button']
             image = request.FILES['banner-image']
             banner = HomeHeroBanner(
-                heading=heading, tagline=tagline, slug=slug, image=image)
+                heading=heading, tagline=tagline, slug=slug, button=button, image=image)
             banner.save()
             return redirect(home_hero_banner)
     else:
@@ -77,7 +78,7 @@ def home_hero_banner_list(request, id):
             if request.method == "GET":
                 try:
                     banner = HomeHeroBanner.objects.filter(
-                        id=id).values('id', 'heading', 'tagline', 'slug')
+                        id=id).values('id', 'heading', 'tagline', 'slug','button')
                     return JsonResponse({'result': list(banner)})
                 except Exception as e:
                     print(str(e))
@@ -99,6 +100,7 @@ def home_hero_banner_update(request, id):
                     heading = request.POST['banner-heading']
                     tagline = request.POST['banner-tagline']
                     slug = request.POST['banner-slug']
+                    button = request.POST['banner-button']
                     banner = HomeHeroBanner.objects.get(id=id)
                     banner.heading = heading
                     banner.tagline = tagline
@@ -106,6 +108,7 @@ def home_hero_banner_update(request, id):
                         image = request.FILES['banner-image']
                         banner.image = image
                     banner.slug = slug
+                    banner.button = button
                     banner.save()
                     return redirect(home_hero_banner)
                 except Exception as e:

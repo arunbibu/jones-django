@@ -9,7 +9,7 @@
         <div class="breadcumb-style1">
           <div class="breadcumb-list">
             <a href="{% url 'home' %}">Home</a>
-            <a href="javascript:void(0);">Properties</a>
+            <a href="javascript:void(0);">Find a property</a>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
     <div class="row tab-cont" id="tenent-tab">
       <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
         <div class="about-box2">
-          <h3 class="title">Lease/Rent a Property<br class="d-none d-xl-block" /></h3>
+          <h3 class="title">Find a Property<br class="d-none d-xl-block" /></h3>
           <p class="text fz15">
             JAM is your gateway to a seamless leasing and renting experience. Discover a diverse
             range of rental properties that suit your preferences, backed by our expertise in property
@@ -35,7 +35,7 @@
       <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
         <div class="row">
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 270px;">
               <span class="icon flaticon-search-1"></span>
               <h3 class="title mb-1">01</h3>
               <h6 class="subtitle">Wide Selection</h6>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 270px;">
               <span class="icon flaticon-chat"></span>
               <h3 class="title mb-1">02</h3>
               <h6 class="subtitle">Easy Navigation</h6>
@@ -54,7 +54,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 270px;">
               <span class="icon flaticon-bird-house"></span>
               <h3 class="title mb-1">03</h3>
               <h6 class="subtitle">Expert Guidance</h6>
@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="col-sm-6">
-            <div class="iconbox-style6">
+            <div class="iconbox-style6" style="height: 270px;">
               <span class="icon flaticon-house-1"></span>
               <h3 class="title mb-1">04</h3>
               <h6 class="subtitle">Transparent Information</h6>
@@ -87,7 +87,7 @@
           <div class="widget-wrapper">
             <h6 class="list-title">Find your home</h6>
             <div class="search_area">
-              <input type="text" class="form-control" placeholder="What are you looking for?">
+              <input type="text" class="form-control" placeholder="Enter location">
               <label><span class="flaticon-search"></span></label>
             </div>
           </div>
@@ -453,14 +453,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -479,14 +475,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -505,14 +497,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -531,14 +519,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -557,14 +541,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -583,14 +563,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -609,14 +585,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -635,14 +607,10 @@
           <div class="col-sm-6">
             <div class="listing-style7">
               <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="">
-                <div class="list-tag fz12"><span class="flaticon-electricity me-2"></span>FEATURED</div>
-                <div class="list-tag2 fz12">FOR RENT</div>
-                <div class="list-meta">
-                  <a href="javascript:void(0);"><span class="flaticon-like"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-new-tab"></span></a>
-                  <a href="javascript:void(0);"><span class="flaticon-fullscreen"></span></a>
-                </div>
+                <a href="{% url 'property-single' %}">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" style="height: 350px;">
+                </a>
+                <div class="list-tag2 fz12" style="left: 10px;">FOR RENT</div>
               </div>
               <div class="list-content">
                 <h6 class="list-title"><a href="{% url 'property-single' %}">3 BHK Residential Apartment for Lease</a>
@@ -678,7 +646,6 @@
                 <a class="page-link" href="#"><span class="fas fa-angle-right"></span></a>
               </li>
             </ul>
-            <p class="mt10 pagination_page_count text-center">1 – 20 of 300+ property available</p>
           </div>
         </div>
       </div>

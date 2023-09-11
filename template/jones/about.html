@@ -10,24 +10,13 @@
                 <div class="breadcumb-style1">
                     <div class="breadcumb-list">
                         <a href="{% url 'home' %}">Home</a>
-                        <a href="javascript:void(0);">About</a>
+                        <a href="javascript:void(0);">About Us</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
-
-<!-- UI Elements Sections -->
-<section class="breadcumb-section2 p-0">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <h2 class="title">About Us</h2>
-            </div>
-        </div>
-    </div>
-</section>
+</div>
 
 <!-- Our About Area -->
 <section class="our-about pb90">
@@ -89,6 +78,38 @@
                 </div>
             </div>
         </div>
+        
+      <div class="row">
+        <div class="col-sm-6 wow fadeInLeft" data-wow-delay="00ms">
+          <div class="iconbox-style3 text-center">
+            <div class="icon">
+              <img class="w-100" src="{% static 'jones/images/icon/property-buy-2.svg' %}" alt />
+            </div>
+            <div class="iconbox-content">
+              <h4 class="title">Find a property</h4>
+              <p class="text">Experience seamless leasing with JAM. Choose from curated properties, enjoy clear terms,
+                online convenience, and responsive maintenance. Lease confidently for a comfortable and
+                secure living environment.</p>
+              <a href="{% url 'listing' %}" class="ud-btn btn-thm3">Find a home<i
+                  class="fal fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 wow fadeInUp" data-wow-delay="300ms">
+          <div class="iconbox-style3 active text-center">
+            <div class="icon">
+              <img class="w-100" src="{% static 'jones/images/icon/property-sell-2.svg' %}" alt />
+            </div>
+            <div class="iconbox-content">
+              <h4 class="title">List a Property</h4>
+              <p class="text">Unlock the potential of your property with our seamless property listing service, where
+                turning your space into a valuable asset has never been easier.</p>
+              <a href="{% url 'properties' %}" class="ud-btn btn-thm3">List Now<i
+                  class="fal fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </section>
 
