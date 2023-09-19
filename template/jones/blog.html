@@ -1,215 +1,127 @@
 {% extends 'jones/base.html' %}
 {% load static %}
 {% block content %}
-<div class="p-4 mb-5" style="background-color: #f9f9f9;">
+  <div class="p-4 mb-5" style="background-color: #f9f9f9;">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="breadcumb-style1">
-                    <div class="breadcumb-list">
-                        <a href="{% url 'home' %}">Home</a>
-                        <a href="javascript:void(0);">Real Estate Guide</a>
-                    </div>
-                </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="breadcumb-style1">
+            <div class="breadcumb-list">
+              <a href="{% url 'home' %}">Home</a>
+              <a href="javascript:void(0);">Real Estate Guide</a>
             </div>
-        </div>
-    </div>
-</div>
-<section class="our-blog">
-    <div class="container">
-        <div class="main-title text-center">
-            <h2 class="title">Real Estate Guide</h2>
-            <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
           </div>
-        <div class="row wow fadeInUp" data-wow-delay="300ms"
-            style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
-            <div class="col-lg-8">
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-                <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
-                    <div class="blog-img flex-shrink-0">
-                        <img class="w-100" src="{% static 'jones/images/blog/blog-10.jpg' %}" alt="" />
-                        <div class="date">
-                            <span class="month">July</span>
-                            <span class="day">28</span>
-                        </div>
-                    </div>
-                    <div class="blog-content pl30 pb20 flex-grow-1">
-                        <a class="tag" href="">Home Improvement</a>
-                        <h4 class="title mt-1 mb20"><a href="{% url 'real-estate-guide-single' %}">7 Simple Ways to Keep Your Kids'
-                                Toys From Taking Over Your Home</a></h4>
-                        <p class="text mb0">When it's time to move to a smaller home, these tips will help you save the
-                            memories while.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="blog-sidebar">
-                    <div class="sidebar-widget mb30">
-                        <h6 class="widget-title">Top Properties </h6>
-                        <div class="list-news-style d-flex align-items-center mt20 mb20">
-                            <div class="news-img flex-shrink-0">
-                                <img src="{% static 'jones/images/blog/blog-s-3.jpg' %}" alt="" />
-                            </div>
-                            <div class="news-content flex-shrink-1 ms-3">
-                                <p class="new-text mb0 fz14">
-                                    8 Tips for Achieving <br class="d-none d-xl-block" />Maximum Coziness
-                                </p>
-                                <a class="body-light-color" href="">2 Jul 2022</a>
-                            </div>
-                        </div>
-                        <div class="list-news-style d-flex align-items-center mb20">
-                            <div class="news-img flex-shrink-0">
-                                <img src="{% static 'jones/images/blog/blog-s-4.jpg' %}" alt="" />
-                            </div>
-                            <div class="news-content flex-shrink-1 ms-3">
-                                <p class="new-text mb0 fz14">
-                                    A 3-Step Downsizing <br class="d-none d-xl-block" />Plan
-                                </p>
-                                <a class="body-light-color" href="">2 Jul 2022</a>
-                            </div>
-                        </div>
-                        <div class="list-news-style d-flex align-items-center">
-                            <div class="news-img flex-shrink-0">
-                                <img src="{% static 'jones/images/blog/blog-s-5.jpg' %}" alt="" />
-                            </div>
-                            <div class="news-content flex-shrink-1 ms-3">
-                                <p class="new-text mb0 fz14">
-                                    How to Plan an Outdoor<br class="d-none d-xl-block" />Movie Night
-                                </p>
-                                <a class="body-light-color" href="">2 Jul 2022</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+      </div>
     </div>
-</section>
+  </div>
+  <section class="our-blog py-5">
+    <div class="container">
+      <div class="main-title text-center">
+        <h2 class="title">Real Estate Guide</h2>
+        <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
+      </div>
+      <div class="row wow fadeInUp" data-wow-delay="300ms" style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;">
+        <div class="col-lg-8">
+          <form class="form-style1 pb-5" action="" method="post">
+            <select class="form-control" name="blog-category" id="blog-category-button" style="width: 200px;">
+              <option value="all" default>All</option>
+              <option value="blogs">Blogs</option>
+              <option value="news">News</option>
+            </select>
+          </form>
+          {% for blog in blogs %}
+            <div class="blog-style1 list-style bgc-white d-block d-md-flex align-items-xl-center">
+              <div class="blog-img flex-shrink-0" style="width: 280px;height: 240px;">
+                <img class="w-100" src="{{blog.thumb.url}}" alt="{{blog.title}}" style="width: 100%;height: 100%;object-fit: cover;"/>
+                <div class="date">
+                  <span class="month">{{blog.created_on|date:"M"}}</span>
+                  <span class="day">{{blog.created_on|date:"d"}}</span>
+                </div>
+              </div>
+              <div class="blog-content pl30 pb20 flex-grow-1">
+                <a class="tag" href="">{{blog.category}}</a>
+                <h4 class="title mt-1 mb20"><a href="{{blog.slug}}/">{{blog.title}}</a></h4>
+                <p class="text mb0">{{blog.excerpt}}</p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="col-lg-4">
+          <div class="blog-sidebar">
+            <div class="sidebar-widget mb30">
+              <h6 class="widget-title">Top Properties</h6>
+              <div class="list-news-style d-flex align-items-center mt20 mb20">
+                <div class="news-img flex-shrink-0">
+                  <img src="{% static 'jones/images/blog/blog-s-3.jpg' %}" alt="" />
+                </div>
+                <div class="news-content flex-shrink-1 ms-3">
+                  <p class="new-text mb0 fz14">
+                    8 Tips for Achieving <br class="d-none d-xl-block" />Maximum Coziness
+                  </p>
+                  <a class="body-light-color" href="">2 Jul 2022</a>
+                </div>
+              </div>
+              <div class="list-news-style d-flex align-items-center mb20">
+                <div class="news-img flex-shrink-0">
+                  <img src="{% static 'jones/images/blog/blog-s-4.jpg' %}" alt="" />
+                </div>
+                <div class="news-content flex-shrink-1 ms-3">
+                  <p class="new-text mb0 fz14">
+                    A 3-Step Downsizing <br class="d-none d-xl-block" />Plan
+                  </p>
+                  <a class="body-light-color" href="">2 Jul 2022</a>
+                </div>
+              </div>
+              <div class="list-news-style d-flex align-items-center">
+                <div class="news-img flex-shrink-0">
+                  <img src="{% static 'jones/images/blog/blog-s-5.jpg' %}" alt="" />
+                </div>
+                <div class="news-content flex-shrink-1 ms-3">
+                  <p class="new-text mb0 fz14">
+                    How to Plan an Outdoor<br class="d-none d-xl-block" />Movie Night
+                  </p>
+                  <a class="body-light-color" href="">2 Jul 2022</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}
+{% block script %}
+<script>
+    $(document).ready(function(){
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = window.location.search.substring(1),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+        
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+        
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+                }
+            }
+            return false;
+        };
+
+        if(getUrlParameter('type')){
+            $('#blog-category-button').val(getUrlParameter('type'))
+        }
+        else{
+            $('#blog-category-button').val("all")
+        }
+        
+        $('#blog-category-button').change(function(){
+            window.location.href = window.location.href.replace( /[\?#].*|$/, `?type=${$(this).val()}` );
+        });
+    });
+
+</script>
+{% endblock script %}
+

@@ -1,0 +1,257 @@
+{% extends 'administrator/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row align-items-center pb40">
+    <div class="col-xxl-3">
+        <div class="dashboard_title_area">
+            <h2>Real Estate Guide</h2>
+            <p class="text">Lorem ipsum dolor sit.</p>
+        </div>
+    </div>
+    <div class="col-xxl-9">
+        <div class="dashboard_search_meta d-md-flex align-items-center justify-content-xxl-end">
+            <div href="" class="ud-btn btn-thm" id="add-btn">Add Real Estate Guide<i class="fal fa-arrow-right-long"></i>
+            </div>
+            <div href="" class="ud-btn btn-thm" id="close-btn" style="display: none;">Close<i
+                    class="fal fa-arrow-right-long"></i></div>
+        </div>
+    </div>
+</div>
+<div class="row" id="view-data">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <div class="packages_table table-responsive">
+                {% if blogs %}  
+                <table class="table-style3 table at-savesearch">
+                    <thead class="t-head">
+                        <tr>
+                            <th scope="col">Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Excrept</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="t-body">
+                        {% for blog in blogs %}
+                        <tr>
+                            <td class="vam">{{blog.title}}</td>
+                            <td class="vam" style="text-transform: capitalize;">{{blog.category}}</td>
+                            <td class="vam">{{blog.excerpt|truncatechars:20}}</td>
+                            <td class="vam">
+                                <div class="d-flex">
+                                    <a href="" class="icon edit-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                    title="Edit" id="{{blog.id}}"><span class="fas fa-pen fa"></span></a>
+                                    <a href="" class="icon delete-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Delete" id="{{blog.id}}"><span class="flaticon-bin"></span></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+                {% comment %} <div class="mbp_pagination text-center mt30">
+                    <ul class="page_navigation">
+                        <li class="page-item">
+                            <a class="page-link" href="#"> <span class="fas fa-angle-left"></span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item active" aria-current="page">
+                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">20</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#"><span class="fas fa-angle-right"></span></a>
+                        </li>
+                    </ul>
+                    <p class="mt10 pagination_page_count text-center">1 – 20 of 300+ property available</p>
+                </div> {% endcomment %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" id="add-data" style="display: none;">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <form class="row g-3 justify-content-center form-style1" action="{% url 'blog' %}" method="POST"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-md-4">
+                    <label class="form-label fw600 dark-color">Title</label>
+                    <input type="text" class="form-control" placeholder="Your Name" name="blog-title">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw600 dark-color">Category</label>
+                    <select class="form-control" name="blog-cat">
+                        <option value="blogs">Blogs</option>
+                        <option value="news">News</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw600 dark-color">Banner Image</label>
+                    <input type="file" class="form-control" name="blog-thumb">
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label fw600 dark-color">Excrept</label>
+                    <textarea class="form-control" name="blog-excerpt">
+                    </textarea>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label fw600 dark-color">Content</label>
+                    <textarea class="form-control blog-content" name="blog-content" >
+                    </textarea>
+                </div>
+
+                <!-- end col -->
+                <div class="col-12 d-flex justify-content-center">
+                    <button class="ud-btn btn-thm-border mb25 me-4" type="submit">Submit</button>
+                </div>
+                <!-- end col -->
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row" id="update-data" style="display: none;">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <form class="row g-3 justify-content-center form-style1" action="{% url 'blog' %}" method="POST"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="col-md-4">
+                    <label class="form-label fw600 dark-color">Title</label>
+                    <input type="text" class="form-control" placeholder="Your Name" id="blog-title" name="blog-title">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw600 dark-color">Category</label>
+                    <select class="form-control" name="blog-cat" id="blog-cat">
+                        <option value="blogs">Blogs</option>
+                        <option value="news">News</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw600 dark-color">Banner Image</label>
+                    <input type="file" class="form-control" name="blog-thumb" id="blog-thumb">
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label fw600 dark-color">Excrept</label>
+                    <textarea class="form-control" id="blog-excerpt" name="blog-excerpt">
+                    </textarea>
+                </div>
+                <div class="col-md-12">
+                    <label class="form-label fw600 dark-color">Content</label>
+                    <textarea class="form-control blog-content" name="blog-content" id="blog-content-update">
+                    </textarea>
+                </div>
+
+                <!-- end col -->
+                <div class="col-12 d-flex justify-content-center">
+                    <button class="ud-btn btn-thm-border mb25 me-4" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+{% block scripts %}
+<script>
+    $(function () {
+            tinymce.init({
+              selector: '.blog-content',
+              plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+              toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+              tinycomments_mode: 'embedded',
+              tinycomments_author: 'Author name',
+              mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+              ],
+              ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+            });
+        //add btn
+        $("#add-btn").click(function () {
+            $("#add-btn").hide();
+            $("#close-btn").show();
+            $("#view-data").hide();
+            $("#update-data").hide();
+            $("#add-data").show();
+        });
+
+        // Close Btn
+        $("#close-btn").click(function () {
+            $("#add-btn").show();
+            $("#close-btn").hide();
+            $("#view-data").show();
+            $("#add-data").hide();
+            $("#update-data").hide();
+        });
+    });
+    {% if perms.administrator.delete_blogs %}
+    //delete
+    $("table").on("click", ".delete-btn", function () {
+        var id = $(this).attr("id");
+        var token = '{{csrf_token}}';
+        if (confirm("Are you sure ? You want to delete this ?")) {
+            $.ajax({
+                headers: { "X-CSRFToken": token },
+                type: 'POST',
+                url: "{% url 'blog-delete' id=12345 %}".replace(/12345/, id.toString()),
+                success: function (data) {
+                    if (data.result == true) {
+                        alert("Deleted");
+                        window.location.reload();
+                    }
+                    else if (data.result == false) {
+                        if (data.content == "Error Occured while deleting") {
+                            alert("File does not exist");
+                        }
+                    }
+                }
+            });
+        } else {
+            alert("Something wrong please try after some time !");
+        }
+    });
+    {% endif %}
+
+    {% if perms.administrator.change_blogs %}
+    //update
+    $('table').on("click", '.edit-btn', function (e) {
+        e.preventDefault();
+
+        $("#add-btn").hide();
+        $("#close-btn").show();
+        $("#view-data").hide();
+        $("#add-data").hide();
+        $("#update-data").show();
+
+        var id = $(this).attr("id");
+        if (id) {
+            var token = '{{csrf_token}}';
+            $.ajax({
+                type: 'GET',
+                headers: { "X-CSRFToken": token },
+                dataType: 'json',
+                url: "{% url 'blog-list' id=12345 %}".replace(/12345/, id.toString()),
+                success: function (data) {
+                    $('#blog-title').val(data.result[0].title)
+                    $('#blog-cat').val(data.result[0].category)
+                    $('#blog-excerpt').val(data.result[0].excerpt)
+                    tinymce.get("blog-content-update").execCommand('mceInsertContent',false,data.result[0].content);
+                    $('#blog-content-update').val(data.result[0].content)
+                    $('#update-data form').attr("action", "{% url 'blog-update' id=12345 %}".replace(/12345/, data.result[0].id.toString()))
+                }
+            });
+        }
+        else {
+            alert("Something went wrong please try after some time !");
+        }
+    });
+    {% endif %}
+</script>
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from administrator.models import HomeHeroBanner, Testimonials
+from administrator.models import HomeHeroBanner, Testimonials, Blogs, ContactForm
 
 
 # home view
@@ -9,6 +9,7 @@ from administrator.models import HomeHeroBanner, Testimonials
 def home(request):
     banners = HomeHeroBanner.objects.all()
     testimonials = Testimonials.objects.all()
+    blog = Blogs.objects.filter()
     return render(request, 'jones/home.html', {"banners": banners, "testimonials": testimonials})
 
 # listing view
@@ -38,13 +39,22 @@ def properties(request):
 
 # real_estate_guide
 def real_estate_guide(request):
-    return render(request, 'jones/blog.html')
+    type = request.GET.get('type')
+    print(type)
+    if type == "all":
+        blog = Blogs.objects.filter()
+    elif type:
+        blog = Blogs.objects.filter(category=type)
+    else:
+        blog = Blogs.objects.filter()
+    return render(request, 'jones/blog.html',{"blogs": blog})
 
 # real_estate_guide single
 
 
-def real_estate_guide_single(request):
-    return render(request, 'jones/blog-single.html')
+def real_estate_guide_single(request,slug):
+    blog = Blogs.objects.get(slug=slug)
+    return render(request, 'jones/blog-single.html',{"blog":blog})
 
 
 # interiors
@@ -73,4 +83,16 @@ def sell(request):
 # contact view
 
 def contact(request):
-    return render(request, 'jones/contact.html')
+    if request.method == 'POST':
+        name = request.POST.get('jones-name')
+        email = request.POST.get('jones-email')
+        phone = request.POST.get('jones-phone')
+        requirements = request.POST.get('jones-requirements')
+        message = request.POST.get('jones-message')
+        
+        if name and email and message:
+            contacts = ContactForm(name=name,email=email,phone=phone,requirements=requirements,message=message)
+            contacts.save()
+        return render(request, 'jones/contact.html')
+    if request.method == 'GET':
+        return render(request, 'jones/contact.html')

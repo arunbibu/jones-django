@@ -118,20 +118,20 @@
     });
 
     /* ----- Mobile Nav ----- */
-    document.addEventListener('DOMContentLoaded', () => {
-      new Mmenu("#menu", {
-        navbar: {
-        title: "Menu"
-      },
-      searchfield: {
-        add: false,
-        addTo: "#contacts"
-      },
-      offCanvas: {
-        position: "left-front"
-      }},
-      {});        
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //   new Mmenu("#menu", {
+    //     navbar: {
+    //     title: "Menu"
+    //   },
+    //   searchfield: {
+    //     add: false,
+    //     addTo: "#contacts"
+    //   },
+    //   offCanvas: {
+    //     position: "left-front"
+    //   }},
+    //   {});        
+    // });
     
 
     /* ----- Custom Search Dropdown Script Start ----- */
@@ -365,10 +365,10 @@
 
 
     // tab section
-    $('input[type=radio][name=switchCat]').change(function(){
+    $('.tab-click').click(function(){
         $('.tab-cont').hide();
-        console.log($(this).val())
-        $(`#${$(this).val()}`).css('display','flex');
+        const id = $(this).attr('data-id');
+        $(`${id}`).show();
     });
 
 })(window.jQuery);

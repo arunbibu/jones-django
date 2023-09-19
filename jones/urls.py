@@ -14,5 +14,5 @@ urlpatterns = [
     path('property-single/', views.property_single, name='property-single'),
     path('list-a-property/', views.properties, name='properties'),
     path('real-estate-guide/', views.real_estate_guide, name='real-estate-guide'),
-    path('real-estate-guide-single/', views.real_estate_guide_single, name='real-estate-guide-single'),
+    path('real-estate-guide/<slug:slug>/', views.real_estate_guide_single, name='real-estate-guide-single'),
 ]

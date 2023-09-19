@@ -1,796 +1,673 @@
 {% extends 'jones/base.html' %}
 {% load static %}
+{% block style %}
+  <style>
+    :root {
+      --switches-bg-color: black;
+      --switches-label-color: white;
+      --switch-bg-color: white;
+      --switch-text-color: black;
+    }
+    .switches-container {
+      width: 300px;
+      position: relative;
+      display: flex;
+      padding: 0;
+      position: relative;
+      background: var(--switches-bg-color);
+      line-height: 3rem;
+      border-radius: 3rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* input (radio) for toggling. hidden - use labels for clicking on */
+    .switches-container input {
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+    }
+    
+    /* labels for the input (radio) boxes - something to click on */
+    .switches-container label {
+      width: 50%;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+      cursor: pointer;
+      color: var(--switches-label-color);
+    }
+    
+    /* switch highlighters wrapper (sliding left / right) 
+                    - need wrapper to enable the even margins around the highlight box
+                */
+    .switch-wrapper {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 50%;
+      padding: 0.15rem;
+      z-index: 3;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      /* transition: transform 1s; */
+    }
+    
+    /* switch box highlighter */
+    .switch {
+      border-radius: 3rem;
+      background: var(--switch-bg-color);
+      height: 100%;
+    }
+    
+    /* switch box labels
+                    - default setup
+                    - toggle afterwards based on radio:checked status 
+                */
+    .switch div {
+      width: 100%;
+      text-align: center;
+      opacity: 0;
+      display: block;
+      color: var(--switch-text-color);
+      transition: opacity 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.125s;
+      will-change: opacity;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    /* slide the switch box from right to left */
+    .switches-container input:nth-of-type(1):checked ~ .switch-wrapper {
+      transform: translateX(0%);
+    }
+    
+    /* slide the switch box from left to right */
+    .switches-container input:nth-of-type(2):checked ~ .switch-wrapper {
+      transform: translateX(100%);
+    }
+    
+    /* toggle the switch box labels - first checkbox:checked - show first switch div */
+    .switches-container input:nth-of-type(1):checked ~ .switch-wrapper .switch div:nth-of-type(1) {
+      opacity: 1;
+    }
+    
+    /* toggle the switch box labels - second checkbox:checked - show second switch div */
+    .switches-container input:nth-of-type(2):checked ~ .switch-wrapper .switch div:nth-of-type(2) {
+      opacity: 1;
+    }
+  </style>
+{% endblock %}
+
 {% block content %}
-{% if banners %}
-<div class="banner-wrapper position-relative">
-  <section class="thumbimg-countnumber-carousel owl-theme owl-carousel p-0">
-    {% for banner in banners %}
-    <div class="item">
-      <div class="slider-slide-item" style="
-                    background-image: url({{banner.image.url}});
-                  " data-thumb="{{banner.image.url}}">
-        <div class="container">
+  {% if banners %}
+    <div class="banner-wrapper position-relative">
+      <section class="thumbimg-countnumber-carousel owl-theme owl-carousel p-0">
+        {% for banner in banners %}
+          <div class="item">
+            <div class="slider-slide-item" style="
+                    background-image: url({{ banner.image.url }});
+                  " data-thumb="{{ banner.image.url }}">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-12 text-left">
+                    <h4 class="h1 slider-subtitle text-white">{{ banner.heading }}</h4>
+                    <p class="mb30 slider-text text-white" style="max-width: 550px;">{{ banner.tagline }}</p>
+                    <div class="slider-btn-block">
+                      <a href="{{ banner.slug }}" class="ud-btn btn-white slider-btn">{{ banner.button }}<i class="fal fa-arrow-right-long"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </section>
+      <div class="carousel-control-block d-flex d-md-none">
+        <div class="carousel-btn-block slider-navigation-btn">
+          <span class="carousel-btn left-btn"><i class="fa fa-angle-up"></i></span>
+          <span class="carousel-btn right-btn"><i class="fa fa-angle-down"></i></span>
+        </div>
+        <div class="slider-number-count"></div>
+      </div>
+    </div>
+  {% endif %}
+
+  <section class="pb90 pb30-md">
+    <div class="container">
+      <div class="main-title text-center mb-0">
+        <h2 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
+        <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id quibusdam beatae quod perferendis qui? Exercitationem expedita suscipit similique blanditiis ipsum!</p>
+      </div>
+      <div class="row">
+        <div class="col-12 d-flex justify-content-center align-items-center wow fadeInUp pb-5" data-wow-delay="100ms">
+          <div class="switches-container">
+            <input type="radio" id="switchMonthly" name="switchCat" value="owner-tab" checked="checked" />
+            <input type="radio" id="switchYearly" name="switchCat" value="tenent-tab" />
+            <label for="switchMonthly">Owners</label>
+            <label for="switchYearly">Tenants</label>
+            <div class="switch-wrapper">
+              <div class="switch">
+                <div>Owners</div>
+                <div>Tenants</div>
+              </div>
+            </div>
+          </div>
+          {% comment %} <div class="ud-btn btn-thm tab-click" style="cursor: pointer;" data-id="#owner-tab">For Owners</div>
+          <div class="ud-btn btn-thm tab-click" style="cursor: pointer;margin-left: 30px;" data-id="#tenent-tab">For Tenants</div> {% endcomment %}
+        </div>
+        <div class="col-12"></div>
+      </div>
+      <div class="row tab-cont" id="owner-tab">
+        <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
+          <div class="about-box2">
+            <h3 class="title">For Owners<br class="d-none d-xl-block" /></h3>
+            <p class="text fz15">JAM guarantees consistent monthly rent post first tenant, with a potential 5% escalation every 11 months, regardless of occupancy status.</p>
+            <a href="{% url 'contact' %}" class="ud-btn btn-thm">Contact Us<i class="fal fa-arrow-right-long"></i></a>
+            <img class="img-1" src="{% static 'jones/images/about/home6-about-1.png' %}" alt />
+          </div>
+        </div>
+        <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
           <div class="row">
-            <div class="col-lg-12 text-left">
-              <h4 class="h1 slider-subtitle text-white">{{banner.heading}}</h4>
-              <p class="mb30 slider-text text-white" style="max-width: 550px;">{{banner.tagline}}</p>
-              <div class="slider-btn-block">
-                <a href="{{banner.slug}}" class="ud-btn btn-white slider-btn">{{banner.button}}<i
-                    class="fal fa-arrow-right-long"></i></a>
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-search-1"></span>
+                <h3 class="title mb-1">01</h3>
+                <h6 class="subtitle">Time Saving</h6>
+                <p class="iconbox-text">JAM handles tasks like screening, maintenance, and rent collection, saving homeowners time and reducing tenant-related stress.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-chat"></span>
+                <h3 class="title mb-1">02</h3>
+                <h6 class="subtitle">Property Maintenance</h6>
+                <p class="iconbox-text">We ensure timely upkeep, preserving property value and preventing expensive repairs through regular maintenance and quick issue resolution.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-bird-house"></span>
+                <h3 class="title mb-1">03</h3>
+                <h6 class="subtitle">Market Insights</h6>
+                <p class="iconbox-text">With local market expertise, JAM offers homeowners insights on rates, trends, and adjustments for a competitive edge.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-house-1"></span>
+                <h3 class="title mb-1">04</h3>
+                <h6 class="subtitle">Quarterly Property Audit</h6>
+                <p class="iconbox-text">Our diligent oversight includes regular quarterly audits, ensuring financial transparency and property compliance for your peace of mind.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row tab-cont" id="tenent-tab" style="display: none;">
+        <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
+          <div class="about-box2">
+            <h3 class="title">For Tenants <br class="d-none d-xl-block" /></h3>
+            <p class="text fz15" sty>
+              JAM mediates landlords and tenants, upholding privacy and <br />promptly handling property matters<br /> with professionalism.
+            </p>
+            <a href="{% url 'contact' %}" class="ud-btn btn-thm">Contact Us<i class="fal fa-arrow-right-long"></i></a>
+            <img class="img-1" src="{% static 'jones/images/about/home6-about-1.png' %}" alt />
+          </div>
+        </div>
+        <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-search-1"></span>
+                <h3 class="title mb-1">01</h3>
+                <h6 class="subtitle">Hassle-free transaction:</h6>
+                <p class="iconbox-text">We ensure that the lease amount is returned 2 days prior to the end of the lease tenure, eliminating unnecessary waiting periods.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-chat"></span>
+                <h3 class="title mb-1">02</h3>
+                <h6 class="subtitle">Property Maintenance</h6>
+                <p class="iconbox-text">We ensure timely upkeep, preserving property value and preventing expensive repairs through regular maintenance and quick issue resolution.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-bird-house"></span>
+                <h3 class="title mb-1">03</h3>
+                <h6 class="subtitle">Legal Compliance</h6>
+                <p class="iconbox-text">JAM ensures that rental properties are compliant with local and state laws with notarized agreements, providing tenants with a safe and legal living environment.</p>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="iconbox-style6" style="height: 260px;">
+                <span class="icon flaticon-house-1"></span>
+                <h3 class="title mb-1">04</h3>
+                <h6 class="subtitle">Responsive Maintenance and Repairs</h6>
+                <p class="iconbox-text">Tenants enjoy swift and efficient maintenance with our trusted contractor network, ensuring a comfortable living space.</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    {% endfor %}
   </section>
-  <div class="carousel-control-block d-flex d-md-none">
-    <div class="carousel-btn-block slider-navigation-btn">
-      <span class="carousel-btn left-btn"><i class="fa fa-angle-up"></i></span>
-      <span class="carousel-btn right-btn"><i class="fa fa-angle-down"></i></span>
-    </div>
-    <div class="slider-number-count"></div>
-  </div>
-</div>
-{% endif %}
 
-<section class="pb90 pb30-md">
-  <div class="container">
-    <div class="main-title text-center mb-0">
-      <h2 class="title">Lorem ipsum dolor sit amet consectetur adipisicing elit.</h2>
-      <p class="paragraph">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id quibusdam beatae quod
-        perferendis qui? Exercitationem expedita suscipit similique blanditiis ipsum!</p>
-    </div>
-    <div class="row">
-      <div class="col-12 d-flex justify-content-center align-items-center wow fadeInUp pb-5" data-wow-delay="100ms">
-        <div class="ud-btn btn-thm tab-click" style="cursor: pointer;" data-id="#owner-tab">For Owners</div>
-        <div class="ud-btn btn-thm tab-click" style="cursor: pointer;margin-left: 30px;" data-id="#tenent-tab">For
-          Tenants </div>
-      </div>
-    </div>
-    <div class="row tab-cont" id="owner-tab">
-      <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
-        <div class="about-box2">
-          <h3 class="title">For Owners<br class="d-none d-xl-block" /></h3>
-          <p class="text fz15">
-            Lorem ipsum dolor sit Lorem ipsum dolor sit<br class="d-none d-xl-block" />
-            Lorem ipsum dolor
-          </p>
-          <a href="{% url 'contact' %}" class="ud-btn btn-thm">Contact Us<i class="fal fa-arrow-right-long"></i></a>
-          <img class="img-1" src="{% static 'jones/images/about/home6-about-1.png' %}" alt />
-        </div>
-      </div>
-      <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
+  <section class="p-0">
+    <div class="how-we-help position-relative mx-auto bgc-thm-light maxw1600 pt120 pt60-md pb90 pb30-md bdrs12 mx20-lg">
+      <div class="container">
         <div class="row">
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-search-1"></span>
-              <h3 class="title mb-1">01</h3>
-              <h6 class="subtitle">Time Saving</h6>
-              <p class="iconbox-text">JAM handles tasks like screening, maintenance, and rent collection,
-                saving homeowners time and reducing tenant-related stress.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-chat"></span>
-              <h3 class="title mb-1">02</h3>
-              <h6 class="subtitle">Property Maintenance</h6>
-              <p class="iconbox-text">We ensure timely upkeep, preserving property value and
-                preventing expensive repairs through regular maintenance and quick issue
-                resolution.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-bird-house"></span>
-              <h3 class="title mb-1">03</h3>
-              <h6 class="subtitle">Market Insights</h6>
-              <p class="iconbox-text">With local market expertise, JAM offers homeowners insights on
-                rates, trends, and adjustments for a competitive edge.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-house-1"></span>
-              <h3 class="title mb-1">04</h3>
-              <h6 class="subtitle">Quarterly Property Audit</h6>
-              <p class="iconbox-text">Our diligent oversight includes regular quarterly audits,
-                ensuring financial transparency and property compliance for your peace of mind.</p>
+          <div class="col-lg-6 m-auto wow fadeInUp" data-wow-delay="300ms">
+            <div class="main-title text-center">
+              <h2 class="title">Why JAM?</h2>
+              <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="row tab-cont" id="tenent-tab" style="display: none;">
-      <div class="col-xl-6 wow fadeInUp" data-wow-delay="100ms">
-        <div class="about-box2">
-          <h3 class="title">For Tenants <br class="d-none d-xl-block" /></h3>
-          <p class="text fz15"sty>
-            JAM mediates landlords and tenants,
-            upholding privacy and <br/>promptly
-            handling property matters<br/> with professionalism.
-          </p>
-          <a href="{% url 'contact' %}" class="ud-btn btn-thm">Contact Us<i class="fal fa-arrow-right-long"></i></a>
-          <img class="img-1" src="{% static 'jones/images/about/home6-about-1.png' %}" alt />
-        </div>
-      </div>
-      <div class="col-xl-6 wow fadeInUp" data-wow-delay="300ms">
         <div class="row">
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-search-1"></span>
-              <h3 class="title mb-1">01</h3>
-              <h6 class="subtitle">Hassle-free transaction:</h6>
-              <p class="iconbox-text">We ensure that the lease amount is returned 2 days prior to
-                the end of the lease tenure, eliminating unnecessary waiting periods.</p>
+          <div class="col-sm-6 wow fadeInLeft" data-wow-delay="00ms">
+            <div class="iconbox-style3 text-center">
+              <div class="icon">
+                <img class="w-100" src="{% static 'jones/images/icon/property-buy-2.svg' %}" alt />
+              </div>
+              <div class="iconbox-content">
+                <h4 class="title">Find a property</h4>
+                <p class="text">Experience seamless leasing with JAM. Choose from curated properties, enjoy clear terms, online convenience, and responsive maintenance. Lease confidently for a comfortable and secure living environment.</p>
+                <a href="{% url 'listing' %}" class="ud-btn btn-thm3">Find a home<i class="fal fa-arrow-right-long"></i></a>
+              </div>
             </div>
           </div>
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-chat"></span>
-              <h3 class="title mb-1">02</h3>
-              <h6 class="subtitle">Property Maintenance</h6>
-              <p class="iconbox-text">We ensure timely upkeep, preserving property value and
-                preventing expensive repairs through regular maintenance and quick issue
-                resolution.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-bird-house"></span>
-              <h3 class="title mb-1">03</h3>
-              <h6 class="subtitle">Legal Compliance</h6>
-              <p class="iconbox-text">JAM ensures that rental properties are compliant with local and
-                state laws with notarized agreements, providing tenants with a safe and legal living
-                environment.</p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="iconbox-style6" style="height: 260px;">
-              <span class="icon flaticon-house-1"></span>
-              <h3 class="title mb-1">04</h3>
-              <h6 class="subtitle">Responsive Maintenance and Repairs</h6>
-              <p class="iconbox-text">Tenants enjoy swift and efficient maintenance
-                with our trusted contractor network, ensuring a comfortable living space.</p>
+          <div class="col-sm-6 wow fadeInUp" data-wow-delay="300ms">
+            <div class="iconbox-style3 active text-center">
+              <div class="icon">
+                <img class="w-100" src="{% static 'jones/images/icon/property-sell-2.svg' %}" alt />
+              </div>
+              <div class="iconbox-content">
+                <h4 class="title">List a Property</h4>
+                <p class="text">Unlock the potential of your property with our seamless property listing service, where turning your space into a valuable asset has never been easier.</p>
+                <a href="{% url 'properties' %}" class="ud-btn btn-thm3">List Now<i class="fal fa-arrow-right-long"></i></a>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="p-0">
-  <div class="how-we-help position-relative mx-auto bgc-thm-light maxw1600 pt120 pt60-md pb90 pb30-md bdrs12 mx20-lg">
+  {% comment %} <section>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-6 m-auto wow fadeInUp" data-wow-delay="300ms">
+      <div class="row align-items-md-center wow fadeInRight" data-wow-delay="300ms">
+        <div class="col-md-6 col-lg-6">
+          <div class="position-relative mb30-md">
+            <img class="w-100" src="{% static 'jones/images/about/why-chose-1.png' %}" alt />
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5 offset-lg-1 wow fadeInLeft" data-wow-delay="500ms">
+          <div class="ui-content">
+            <div class="main-title2">
+              <h2 class="title">Why Choose Us</h2>
+              <p class="paragraph fz15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit atque voluptatum quaerat? Nemo, repudiandae aliquam.</p>
+            </div>
+            <div class="accordion-style1">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Can a home depreciate in value?</button></h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">It doesn’t matter how organized you are — a surplus of toys will always ensure your house</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Is an older home as good a value as a new home?</button></h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">It doesn’t matter how organized you are — a surplus of toys will always ensure your house</div>
+                  </div>
+                </div>
+                <div class="accordion-item active">
+                  <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">What is a broker?</button></h2>
+                  <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                      <p>
+                        It doesn’t matter how organized you are — a surplus of toys will always ensure your house is a mess waiting to happen. Fortunately, getting kids on board with the idea of ditching their stuff is a lot easier than it sounds. <br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> {% endcomment %}
+
+  <!-- Explore Apartment -->
+  <section class="py-5">
+    <div class="container">
+      <div class="row align-items-center wow fadeInUp" data-wow-delay="00ms">
+        <div class="col-lg-12">
           <div class="main-title text-center">
-            <h2 class="title">Why JAM?</h2>
+            <h2 class="title">Top Properties for You</h2>
             <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
           </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-sm-6 wow fadeInLeft" data-wow-delay="00ms">
-          <div class="iconbox-style3 text-center">
-            <div class="icon">
-              <img class="w-100" src="{% static 'jones/images/icon/property-buy-2.svg' %}" alt />
-            </div>
-            <div class="iconbox-content">
-              <h4 class="title">Find a property</h4>
-              <p class="text">Experience seamless leasing with JAM. Choose from curated properties, enjoy clear terms,
-                online convenience, and responsive maintenance. Lease confidently for a comfortable and
-                secure living environment.</p>
-              <a href="{% url 'listing' %}" class="ud-btn btn-thm3">Find a home<i
-                  class="fal fa-arrow-right-long"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 wow fadeInUp" data-wow-delay="300ms">
-          <div class="iconbox-style3 active text-center">
-            <div class="icon">
-              <img class="w-100" src="{% static 'jones/images/icon/property-sell-2.svg' %}" alt />
-            </div>
-            <div class="iconbox-content">
-              <h4 class="title">List a Property</h4>
-              <p class="text">Unlock the potential of your property with our seamless property listing service, where
-                turning your space into a valuable asset has never been easier.</p>
-              <a href="{% url 'properties' %}" class="ud-btn btn-thm3">List Now<i
-                  class="fal fa-arrow-right-long"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{% comment %} <section>
-  <div class="container">
-    <div class="row align-items-md-center wow fadeInRight" data-wow-delay="300ms">
-      <div class="col-md-6 col-lg-6">
-        <div class="position-relative mb30-md">
-          <img class="w-100" src="{% static 'jones/images/about/why-chose-1.png' %}" alt />
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-5 offset-lg-1 wow fadeInLeft" data-wow-delay="500ms">
-        <div class="ui-content">
-          <div class="main-title2">
-            <h2 class="title">Why Choose Us</h2>
-            <p class="paragraph fz15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste reprehenderit atque
-              voluptatum quaerat? Nemo, repudiandae aliquam.</p>
-          </div>
-          <div class="accordion-style1">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
-                    aria-controls="collapseOne">Can a home depreciate in value?</button></h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">It doesn’t matter how organized you are — a surplus of toys will always
-                    ensure your house</div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
-                    aria-controls="collapseTwo">Is an older home as good a value as a new home?</button></h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">It doesn’t matter how organized you are — a surplus of toys will always
-                    ensure your house</div>
-                </div>
-              </div>
-              <div class="accordion-item active">
-                <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button"
-                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
-                    aria-controls="collapseThree">What is a broker?</button></h2>
-                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
-                  data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <p>
-                      It doesn’t matter how organized you are — a surplus of toys will always ensure your house is a
-                      mess waiting to happen. Fortunately, getting kids on board with the idea of ditching their stuff
-                      is a lot easier than it sounds. <br />
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> {% endcomment %}
-
-<!-- Explore Apartment -->
-<section class="py-5">
-  <div class="container">
-    <div class="row align-items-center wow fadeInUp" data-wow-delay="00ms">
-      <div class="col-lg-12">
-        <div class="main-title text-center">
-          <h2 class="title">Top Properties for You</h2>
-          <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
-        </div>
-      </div>
-    </div>
-    <div class="row d-none d-lg-flex">
-      <div class="col-lg-12">
-        <div class="row">
-          <div class="col-lg-4">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <a href="{% url 'property-single' %}">
-                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                </a>
-                  <div class="list-tag fz12">
-                    <span class="flaticon-electricity me-2"></span>FEATURED
-                  </div>
-                  <div class="list-price">&#8377; 180000</div>
-                </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <a href="{% url 'property-single' %}">
-                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                </a>
-                  <div class="list-tag fz12">
-                    <span class="flaticon-electricity me-2"></span>FEATURED
-                  </div>
-                  <div class="list-price">&#8377; 180000</div>
-                </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <a href="{% url 'property-single' %}">
-                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                </a>
-                  <div class="list-tag fz12">
-                    <span class="flaticon-electricity me-2"></span>FEATURED
-                  </div>
-                  <div class="list-price">&#8377; 180000</div>
-                </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <a href="{% url 'property-single' %}">
-                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                </a>
-                  <div class="list-tag fz12">
-                    <span class="flaticon-electricity me-2"></span>FEATURED
-                  </div>
-                  <div class="list-price">&#8377; 180000</div>
-                </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <a href="{% url 'property-single' %}">
-                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                </a>
-                  <div class="list-tag fz12">
-                    <span class="flaticon-electricity me-2"></span>FEATURED
-                  </div>
-                  <div class="list-price">&#8377; 180000</div>
-                </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <a href="{% url 'property-single' %}">
-                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                </a>
-                  <div class="list-tag fz12">
-                    <span class="flaticon-electricity me-2"></span>FEATURED
-                  </div>
-                  <div class="list-price">&#8377; 180000</div>
-                </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-12 d-flex justify-content-center align-items-center pb-5">
-        <a href="#" class="ud-btn btn-thm">Rent/Lease A Property <i class="fal fa-arrow-right-long"></i></a>
-      </div>
-    </div>
-    <div class="row d-block d-lg-none">
-      <div class="col-lg-12 wow fadeInUp" data-wow-delay="300ms">
-        <div class="feature-listing-slider navi_pagi_bottom_center slider-dib-sm slider-3-grid owl-carousel owl-theme">
-          <div class="item">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <a href="{% url 'property-single' %}">
-                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                </a>
-                  <div class="list-tag fz12">
-                    <span class="flaticon-electricity me-2"></span>FEATURED
-                  </div>
-                  <div class="list-price">&#8377; 180000</div>
-                </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-price">&#8377; 180000</div>
-              </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-price">&#8377; 180000</div>
-              </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-price">&#8377; 180000</div>
-              </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="listing-style1">
-              <div class="list-thumb">
-                <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
-                <div class="list-price">&#8377; 180000</div>
-              </div>
-              <div class="list-content">
-                <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
-                <p class="list-text">Kanagapura. Bangalore, India</p>
-                <div class="list-meta d-flex align-items-center">
-                  <a href=""><span class="flaticon-bed"></span>3 bed</a>
-                  <a href=""><span class="flaticon-shower"></span>3 bath</a>
-                  <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
-                </div>
-                <hr class="mt-2 mb-2" />
-                <div class="list-meta2 d-flex justify-content-between align-items-center">
-                  <span class="for-what">For Rent</span>
-                  <!--  <div class="icons d-flex align-items-center">
-                              <a href=""><span class="flaticon-fullscreen"></span></a>
-                              <a href=""><span class="flaticon-new-tab"></span></a>
-                              <a href=""><span class="flaticon-like"></span></a>
-                            </div>  -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<section class="pb90 pb30-md">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 m-auto wow fadeInUp" data-wow-delay="00ms">
-        <div class="main-title text-start text-md-center">
-          <h2 class="title">Real Estate Guide</h2>
-          <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
-        </div>
-      </div>
-    </div>
-    <div class="row wow fadeInUp" data-wow-delay="300ms">
-      <div class="col-sm-6 col-xl-4">
-        <div class="blog-style1">
-          <div class="blog-img">
-            <a href="{% url 'real-estate-guide-single' %}">
-              <img class="w-100" src="{% static 'jones/images/blog/blog-1.jpg' %}" alt />
-            </a>
-          </div>
-          <div class="blog-content">
-            <a class="tag" href>Living Room</a>
-            <h6 class="title mt-1"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-xl-4">
-        <div class="blog-style1">
-          <div class="blog-img">
-            <a href="{% url 'real-estate-guide-single' %}">
-              <img class="w-100" src="{% static 'jones/images/blog/blog-2.jpg' %}" alt />
-            </a>
-          </div>
-          <div class="blog-content">
-            <a class="tag" href>Living Room</a>
-            <h6 class="title mt-1"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-xl-4">
-        <div class="blog-style1 d-block d-sm-flex align-items-center">
-          <div class="blog-img flex-shrink-0">
-            <a href="{% url 'real-estate-guide-single' %}">
-              <img class="w-100" src="{% static 'jones/images/blog/blog-s-1.jpg' %}" alt />
-            </a>
-          </div>
-          <div class="blog-content flex-grow-1 ms-3 pe-0 pt-0 pt15-xs">
-            <a class="tag" href>Living Room</a>
-            <h6 class="title fz14 mt-1 mb5"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
-          </div>
-        </div>
-        <div class="blog-style1 d-block d-sm-flex align-items-center">
-          <div class="blog-img flex-shrink-0">
-            <a href="{% url 'real-estate-guide-single' %}">
-              <img class="w-100" src="{% static 'jones/images/blog/blog-s-2.jpg' %}" alt />
-            </a>
-          </div>
-          <div class="blog-content flex-grow-1 ms-3 pe-0 pt-0 pt15-xs">
-            <a class="tag" href>Living Room</a>
-            <h6 class="title fz14 mt-1 mb5"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row wow fadeInUp" data-wow-delay="300ms">
-      <div class="col-lg-12 d-flex justify-content-center align-items-center pb-5">
-        <a href="#" class="ud-btn btn-thm">View More<i class="fal fa-arrow-right-long"></i></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="our-testimonial p-0">
-  <div class="cta-banner2 bgc-f7 maxw1600 mx-auto pt110 pt60-md pb110 pb60-md bdrs12 position-relative">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 mx-auto wow fadeInUp" data-wow-delay="300ms">
-          <div class="main-title text-center">
-            <h2>Testimonials</h2>
-            <p class="paragraph">10,000+ unique online course list designs</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 m-auto wow fadeInUp" data-wow-delay="500ms">
-          <div class="testimonial-style2">
-            <div class="tab-content" id="pills-tabContent">
-              {% for testimonial in testimonials %}
-              <div class="tab-pane fade" id="pills-{{testimonial.id}}st" role="tabpanel"
-                aria-labelledby="pills-{{testimonial.id}}st-tab">
-                <div class="testi-content text-center">
-                  <span class="icon fas fa-quote-left"></span>
-                  <h4 class="testi-text">{{testimonial.content}}</h4>
-                  <h6 class="name">{{testimonial.name}}</h6>
-                  <p class="design">{{testimonial.designation}}</p>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-            <div class="tab-list position-relative">
-              <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
-                {% for testimonial in testimonials %}
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link ps-0" id="pills-{{testimonial.id}}st-tab" data-bs-toggle="pill"
-                    data-bs-target="#pills-{{testimonial.id}}st" type="button" role="tab"
-                    aria-controls="pills-{{testimonial.id}}st" aria-selected="false"><img
-                      src="{{testimonial.image.url}}" alt /></button>
-                </li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="p-0">
-  <div class="cta-banner2 bgc-f7 maxw1600 mx-auto pt110 pt60-md pb110 pb60-md bdrs12 position-relative">
-    <div class="container">
-      <div class="row">
+      <div class="row d-none d-lg-flex">
         <div class="col-lg-12">
-          <div class="main-title text-center">
-            <h2>FAQ</h2>
-            <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, recusandae!</p>
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <a href="{% url 'property-single' %}"><img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" /></a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <a href="{% url 'property-single' %}"><img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" /></a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <a href="{% url 'property-single' %}"><img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" /></a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <a href="{% url 'property-single' %}"><img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" /></a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <a href="{% url 'property-single' %}"><img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" /></a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <a href="{% url 'property-single' %}"><img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" /></a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="accordion-style1 mb-4 mb-lg-5">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">What is the security for the tenant’s money/ lease
-                    amount?</button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                  data-parent="#accordionExample">
-                  <div class="accordion-body">We prioritize complete transparency in our operations. To uphold this, we
-                    facilitate a
-                    direct in-person meeting between you and the property owner. Additionally, for tenant
-                    security, we issue a Post Dated Cheque (PDC) at the agreement's inception, covering the
-                    entirety of the tenant's payment. This PDC is set for 2 days before the tenure concludes,
-                    enabling a smooth vacating process. Rest assured, the agreement will be executed on
-                    legally valid Stamp Paper.</div>
+        </div>
+        <div class="col-lg-12 d-flex justify-content-center align-items-center pb-5">
+          <a href="#" class="ud-btn btn-thm">Rent/Lease A Property <i class="fal fa-arrow-right-long"></i></a>
+        </div>
+      </div>
+      <div class="row d-block d-lg-none">
+        <div class="col-lg-12 wow fadeInUp" data-wow-delay="300ms">
+          <div class="feature-listing-slider navi_pagi_bottom_center slider-dib-sm slider-3-grid owl-carousel owl-theme">
+            <div class="item">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <a href="{% url 'property-single' %}"><img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" /></a>
+                  <div class="list-tag fz12">
+                    <span class="flaticon-electricity me-2"></span>FEATURED
+                  </div>
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What are the Service
-                    charges?</button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                  data-parent="#accordionExample">
-                  <div class="accordion-body">We have a modest service charge in place to enhance your leasing
-                    experience. For a
-                    lease tenure of 2 years, a nominal fee of Rs 10,000 will be applicable. Similarly, for a 3-year
-                    lease tenure, the service charge will be Rs 15,000. This small investment ensures the
-                    smooth facilitation of your leasing process, covering administrative support, legal
-                    documentation, and comprehensive tenant services throughout the lease period.</div>
+            </div>
+            <div class="item">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
                 </div>
               </div>
-              <div class="accordion-item active">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Since when is
-                    the company operational?</button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree"
-                  data-parent="#accordionExample">
-                  <div class="accordion-body">We have been in operation since 2007. In addition, we have diversified
-                    into various
-                    sectors such as wealth management, home interiors, and construction. Specifically, Jones
-                    Asset Management commenced its operations in October 2021.</div>
+            </div>
+            <div class="item">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="listing-style1">
+                <div class="list-thumb">
+                  <img class="w-100" src="{% static 'jones/images/dummy-prop.webp' %}" alt="" />
+                  <div class="list-price">&#8377; 180000</div>
+                </div>
+                <div class="list-content">
+                  <h6 class="list-title"><a href="#">3 BHK Residential Apartment for Lease</a></h6>
+                  <p class="list-text">Kanagapura. Bangalore, India</p>
+                  <div class="list-meta d-flex align-items-center">
+                    <a href=""><span class="flaticon-bed"></span>3 bed</a>
+                    <a href=""><span class="flaticon-shower"></span>3 bath</a>
+                    <a href=""><span class="flaticon-expand"></span>1200 sqft</a>
+                  </div>
+                  <hr class="mt-2 mb-2" />
+                  <div class="list-meta2 d-flex justify-content-between align-items-center">
+                    <span class="for-what">For Rent</span>
+                    <!--       <div class="icons d-flex align-items-center">
+                              <a href=""><span class="flaticon-fullscreen"></span></a>
+                              <a href=""><span class="flaticon-new-tab"></span></a>
+                              <a href=""><span class="flaticon-like"></span></a>
+                            </div>       -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -798,7 +675,148 @@
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  {% if blogs %}
+    <section class="pb90 pb30-md">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 m-auto wow fadeInUp" data-wow-delay="00ms">
+            <div class="main-title text-start text-md-center">
+              <h2 class="title">Real Estate Guide</h2>
+              <p class="paragraph">Aliquam lacinia diam quis lacus euismod</p>
+            </div>
+          </div>
+        </div>
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+          <div class="col-sm-6 col-xl-4">
+            <div class="blog-style1">
+              <div class="blog-img">
+                <a href="{% url 'real-estate-guide-single' %}"><img class="w-100" src="{% static 'jones/images/blog/blog-1.jpg' %}" alt /></a>
+              </div>
+              <div class="blog-content">
+                <a class="tag" href>Living Room</a>
+                <h6 class="title mt-1"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-4">
+            <div class="blog-style1">
+              <div class="blog-img">
+                <a href="{% url 'real-estate-guide-single' %}"><img class="w-100" src="{% static 'jones/images/blog/blog-2.jpg' %}" alt /></a>
+              </div>
+              <div class="blog-content">
+                <a class="tag" href>Living Room</a>
+                <h6 class="title mt-1"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-xl-4">
+            <div class="blog-style1 d-block d-sm-flex align-items-center">
+              <div class="blog-img flex-shrink-0">
+                <a href="{% url 'real-estate-guide-single' %}"><img class="w-100" src="{% static 'jones/images/blog/blog-s-1.jpg' %}" alt /></a>
+              </div>
+              <div class="blog-content flex-grow-1 ms-3 pe-0 pt-0 pt15-xs">
+                <a class="tag" href>Living Room</a>
+                <h6 class="title fz14 mt-1 mb5"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
+              </div>
+            </div>
+            <div class="blog-style1 d-block d-sm-flex align-items-center">
+              <div class="blog-img flex-shrink-0">
+                <a href="{% url 'real-estate-guide-single' %}"><img class="w-100" src="{% static 'jones/images/blog/blog-s-2.jpg' %}" alt /></a>
+              </div>
+              <div class="blog-content flex-grow-1 ms-3 pe-0 pt-0 pt15-xs">
+                <a class="tag" href>Living Room</a>
+                <h6 class="title fz14 mt-1 mb5"><a href="#">Private Contemporary Home Balancing Openness</a></h6>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row wow fadeInUp" data-wow-delay="300ms">
+          <div class="col-lg-12 d-flex justify-content-center align-items-center pb-5">
+            <a href="#" class="ud-btn btn-thm">View More<i class="fal fa-arrow-right-long"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="our-testimonial p-0">
+    <div class="cta-banner2 bgc-f7 maxw1600 mx-auto pt110 pt60-md pb110 pb60-md bdrs12 position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 mx-auto wow fadeInUp" data-wow-delay="300ms">
+            <div class="main-title text-center">
+              <h2>Testimonials</h2>
+              <p class="paragraph">10,000+ unique online course list designs</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 m-auto wow fadeInUp" data-wow-delay="500ms">
+            <div class="testimonial-style2">
+              <div class="tab-content" id="pills-tabContent">
+                {% for testimonial in testimonials %}
+                  <div class="tab-pane fade" id="pills-{{ testimonial.id }}st" role="tabpanel" aria-labelledby="pills-{{ testimonial.id }}st-tab">
+                    <div class="testi-content text-center">
+                      <span class="icon fas fa-quote-left"></span>
+                      <h4 class="testi-text">{{ testimonial.content }}</h4>
+                      <h6 class="name">{{ testimonial.name }}</h6>
+                      <p class="design">{{ testimonial.designation }}</p>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+              <div class="tab-list position-relative">
+                <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+                  {% for testimonial in testimonials %}
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link ps-0" id="pills-{{ testimonial.id }}st-tab" data-bs-toggle="pill" data-bs-target="#pills-{{ testimonial.id }}st" type="button" role="tab" aria-controls="pills-{{ testimonial.id }}st" aria-selected="false"><img src="{{ testimonial.image.url }}" alt /></button>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-0">
+    <div class="cta-banner2 bgc-f7 maxw1600 mx-auto pt110 pt60-md pb110 pb60-md bdrs12 position-relative">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-title text-center">
+              <h2>FAQ</h2>
+              <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, recusandae!</p>
+            </div>
+            <div class="accordion-style1 mb-4 mb-lg-5">
+              <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingOne"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">What is the security for the tenant’s money/ lease amount?</button></h2>
+                  <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="accordion-body">We prioritize complete transparency in our operations. To uphold this, we facilitate a direct in-person meeting between you and the property owner. Additionally, for tenant security, we issue a Post Dated Cheque (PDC) at the agreement's inception, covering the entirety of the tenant's payment. This PDC is set for 2 days before the tenure concludes, enabling a smooth vacating process. Rest assured, the agreement will be executed on legally valid Stamp Paper.</div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">What are the Service charges?</button></h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="accordion-body">We have a modest service charge in place to enhance your leasing experience. For a lease tenure of 2 years, a nominal fee of Rs 10,000 will be applicable. Similarly, for a 3-year lease tenure, the service charge will be Rs 15,000. This small investment ensures the smooth facilitation of your leasing process, covering administrative support, legal documentation, and comprehensive tenant services throughout the lease period.</div>
+                  </div>
+                </div>
+                <div class="accordion-item active">
+                  <h2 class="accordion-header" id="headingThree"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Since when is the company operational?</button></h2>
+                  <div id="collapseThree" class="accordion-collapse collapse show" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="accordion-body">We have been in operation since 2007. In addition, we have diversified into various sectors such as wealth management, home interiors, and construction. Specifically, Jones Asset Management commenced its operations in October 2021.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 {% endblock %}

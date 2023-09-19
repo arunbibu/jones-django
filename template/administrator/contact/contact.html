@@ -1,0 +1,54 @@
+{% extends 'administrator/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="row align-items-center pb40">
+    <div class="col-xxl-3">
+        <div class="dashboard_title_area">
+            <h2>Real Estate Guide</h2>
+            <p class="text">Lorem ipsum dolor sit.</p>
+        </div>
+    </div>
+    <div class="col-xxl-9">
+        <div class="dashboard_search_meta d-md-flex align-items-center justify-content-xxl-end">
+            <div href="" class="ud-btn btn-thm" id="add-btn">Add Real Estate Guide<i class="fal fa-arrow-right-long"></i>
+            </div>
+            <div href="" class="ud-btn btn-thm" id="close-btn" style="display: none;">Close<i
+                    class="fal fa-arrow-right-long"></i></div>
+        </div>
+    </div>
+</div>
+<div class="row" id="view-data">
+    <div class="col-xl-12">
+        <div class="ps-widget bgc-white bdrs12 default-box-shadow2 p30 mb30 overflow-hidden position-relative">
+            <div class="packages_table table-responsive">
+                {% if data %}  
+                <table class="table-style3 table at-savesearch">
+                    <thead class="t-head">
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Requirement</th>
+                            <th scope="col">Message</th>
+                        </tr>
+                    </thead>
+                    <tbody class="t-body">
+                        {% for contact in data %}
+                        <tr>
+                            <td class="vam">{{contact.name}}</td>
+                            <td class="vam">{{contact.email}}</td>
+                            <td class="vam">{{contact.phone}}</td>
+                            <td class="vam">{{contact.requirements}}</td>
+                            <td class="vam">{{contact.message}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

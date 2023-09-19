@@ -19,6 +19,8 @@ urlpatterns = [
          views.home_hero_banner_delete, name='home-hero-banner-delete'),
     # meta tag
     path('meta-tags/', views.meta_tags, name='meta-tags'),
+
+
     # testimonials
     path('home/testimonial/', views.testimonials, name='testimonial'),
     path('home/testimonial/<int:id>/list/',
@@ -27,4 +29,24 @@ urlpatterns = [
          views.testimonials_update, name='testimonial-update'),
     path('home/testimonial/<int:id>/delete/',
          views.testimonials_delete, name='testimonial-delete'),
+
+
+    # blogs
+    path('blog/', views.blogs, name='blog'),
+    path('blog/<int:id>/list/',
+         views.blogs_list, name='blog-list'),
+    path('blog/<int:id>/update/',
+         views.blogs_update, name='blog-update'),
+    path('blog/<int:id>/delete/',
+         views.blogs_delete, name='blog-delete'),
+     #contact 
+     path('contact/',views.contact,name="contact-list") 
+    # properties
+#     path('blog/', views.blogs, name='blog'),
+#     path('blog/<int:id>/list/',
+#          views.blogs_list, name='blog-list'),
+#     path('blog/<int:id>/update/',
+#          views.blogs_update, name='blog-update'),
+#     path('blog/<int:id>/delete/',
+#          views.blogs_delete, name='blog-delete'),
 ]

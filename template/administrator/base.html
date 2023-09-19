@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="{% static 'jones/css/fontawesome.css' %}">
   <link rel="stylesheet" href="{% static 'jones/css/flaticon.css' %}">
   <link rel="stylesheet" href="{% static 'jones/css/bootstrap-select.min.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/9.3.0/mmenu.min.css" integrity="sha512-nNatP1G6CEh43irXY/GN4cDcLRX/R0jAYAV/ulFZcotSXcuIQE5Do4TuDOYNAD2SCIpmIbaYSllyjTysSCkpEw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{% static 'jones/css/ud-custom-spacing.css' %}">
   <link rel="stylesheet" href="{% static 'jones/css/animate.css' %}">
   <link rel="stylesheet" href="{% static 'jones/css/slider.css' %}">
@@ -54,15 +55,16 @@
             <div class="col-6 col-lg-auto">
               <div class="text-center text-lg-start d-flex align-items-center">
                 <div class="dashboard_header_logo position-relative me-2 me-xl-5">
-                  <a href="{% url 'dashboard' %}" class="logo"><img src="{% static 'jones/images/logo.png' %}" alt=""></a>
+                  <a href="{% url 'dashboard' %}" class="logo"><img src="{% static 'jones/images/logo.png' %}"
+                      alt=""></a>
                 </div>
                 <div class="fz20 ms-2 ms-xl-5">
-                  <a href="#" class="dashboard_sidebar_toggle_icon text-thm1 vam"><img src="{% static 'jones/images/dark-nav-icon.svg'%}"
-                      alt=""></a>
+                  <a href="#" class="dashboard_sidebar_toggle_icon text-thm1 vam"><img
+                      src="{% static 'jones/images/dark-nav-icon.svg'%}" alt=""></a>
                 </div>
               </div>
             </div>
-            
+
             <div class="col-6 col-lg-auto">
               <div class="text-center text-lg-end header_right_widgets">
                 <ul class="mb0 d-flex justify-content-center justify-content-sm-end p-0">
@@ -76,8 +78,9 @@
                         <img src="{% static 'jones/images/resource/user.png' %}" alt="user.png">
                       </a>
                       <div class="dropdown-menu">
-                        <div class="user_setting_content">                          
-                          <a class="dropdown-item" href="{% url 'logout' %}"><i class="flaticon-exit mr10"></i>Logout</a>
+                        <div class="user_setting_content">
+                          <a class="dropdown-item" href="{% url 'logout' %}"><i
+                              class="flaticon-exit mr10"></i>Logout</a>
                         </div>
                       </div>
                     </div>
@@ -95,15 +98,24 @@
         <div class="dashboard__sidebar d-none d-lg-block">
           <div class="dashboard_sidebar_list">
             <div class="sidebar_list_item">
-              <a href="{% url 'dashboard' %}" class="items-center "><i
-                  class="flaticon-discovery mr15"></i>Dashboard</a>
-              <a href="{% url 'meta-tags' %}" class="items-center"><i
-                  class="flaticon-discovery mr15"></i>Tag Manager</a>
+              <a href="{% url 'dashboard' %}" class="items-center "><i class="flaticon-discovery mr15"></i>Dashboard</a>
+              <a href="{% url 'meta-tags' %}" class="items-center"><i class="flaticon-discovery mr15"></i>Tag
+                Manager</a>
             </div>
             <p class="fz15 fw400 ff-heading mt30">Home</p>
             <div class="sidebar_list_item ">
-              <a href="{% url 'home-hero-banner' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Hero Banners</a>
-              <a href="{% url 'testimonial' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Testimonials</a>
+              <a href="{% url 'home-hero-banner' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Hero
+                Banners</a>
+              <a href="{% url 'testimonial' %}" class="items-center"><i
+                  class="flaticon-new-tab mr15"></i>Testimonials</a>
+            </div>
+            <p class="fz15 fw400 ff-heading mt30">Blogs</p>
+            <div class="sidebar_list_item ">
+              <a href="{% url 'blog' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Blogs</a>
+            </div>
+            <p class="fz15 fw400 ff-heading mt30">Forms</p>
+            <div class="sidebar_list_item ">
+              <a href="{% url 'contact-list' %}" class="items-center"><i class="flaticon-new-tab mr15"></i>Contact</a>
             </div>
             <div class="sidebar_list_item ">
               <a href="{% url 'logout' %}" class="items-center"><i class="flaticon-exit mr15"></i>Logout</a>
@@ -116,50 +128,67 @@
               <div class="col-lg-12">
                 <div class="dashboard_navigationbar d-block d-lg-none">
                   <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
+                    <button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard
+                      Navigation</button>
                     <ul id="myDropdown" class="dropdown-content">
-                      <li class="active"><a href="page-dashboard.html"><i class="flaticon-discovery mr10"></i>Dashboard</a></li>
-                      <li><p class="fz15 fw400 ff-heading mt30 pl30">Home</p></li>
-                      <li><a href="{% url 'home-hero-banner' %}"><i class="flaticon-new-tab mr10"></i>Hero Banners</a></li>
+                      <li class="active"><a href="page-dashboard.html"><i
+                            class="flaticon-discovery mr10"></i>Dashboard</a></li>
+                      <li>
+                        <p class="fz15 fw400 ff-heading mt30 pl30">Home</p>
+                      </li>
+                      <li><a href="{% url 'home-hero-banner' %}"><i class="flaticon-new-tab mr10"></i>Hero Banners</a>
+                      </li>
                       <li><a href="{% url 'testimonial' %}"><i class="flaticon-new-tab mr10"></i>Testimonials</a></li>
+                      <li>
+                        <p class="fz15 fw400 ff-heading mt30 pl30">Blogs</p>
+                      </li>
+                      <li><a href="{% url 'blog' %}"><i class="flaticon-new-tab mr10"></i>Blogs</a>
+                      </li>
+                      <li>
+                        <p class="fz15 fw400 ff-heading mt30 pl30">Form</p>
+                      </li>
+                      <li><a href="{% url 'contact-list' %}"><i class="flaticon-new-tab mr10"></i>Contat Form</a>
+                      </li>
                       <li class="active"><a class="" href="url"><i class="flaticon-exit mr10"></i>Logout</a></li>
                     </ul>
                   </div>
                 </div>
               </div>
-          {% block content %}{% endblock %}
-          <footer class="dashboard_footer pt30 pb10">
-            <div class="container">
-              <div class="row items-center justify-content-center justify-content-md-between">
-                <div class="col-auto">
-                  <div class="copyright-widget">
-                    <p class="text">© Jones - All rights reserved</p>
+              {% block content %}{% endblock %}
+              <footer class="dashboard_footer pt30 pb10">
+                <div class="container">
+                  <div class="row items-center justify-content-center justify-content-md-between">
+                    <div class="col-auto">
+                      <div class="copyright-widget">
+                        <p class="text">© Jones - All rights reserved</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </footer>
             </div>
-          </footer>
+          </div>
         </div>
+        <a class="scrollToHome" href="#"><i class="fas fa-angle-up"></i></a>
       </div>
-    </div>
-    <a class="scrollToHome" href="#"><i class="fas fa-angle-up"></i></a>
-  </div>
-  <!-- Wrapper End -->
-  <script src="{% static 'jones/js/jquery-3.6.4.min.js' %}"></script>
-  <script src="{% static 'jones/js/jquery-migrate-3.0.0.min.js' %}"></script>
-  <script src="{% static 'jones/js/popper.min.js' %}"></script>
-  <script src="{% static 'jones/js/bootstrap.min.js' %}"></script>
-  <script src="{% static 'jones/js/bootstrap-select.min.js' %}"></script>
-  <script src="{% static 'jones/js/jquery.mmenu.all.js' %}"></script>
-  <script src="{% static 'jones/js/ace-responsive-menu.js' %}"></script>
-  <script src="{% static 'jones/js/chart.min.js' %}"></script>
-  <script src="{% static 'jones/js/chart-custome.js' %}"></script>
-  <script src="{% static 'jones/js/jquery-scrolltofixed-min.js' %}"></script>
-  <script src="{% static 'jones/js/dashboard-script.js' %}"></script>
-  <!-- Custom script for all pages -->
-  <script src="{% static 'jones/js/script.js' %}"></script>
+      <!-- Wrapper End -->
+      <script src="{% static 'jones/js/jquery-3.6.4.min.js' %}"></script>
+      <script src="{% static 'jones/js/jquery-migrate-3.0.0.min.js' %}"></script>
+      <script src="{% static 'jones/js/popper.min.js' %}"></script>
+      <script src="{% static 'jones/js/bootstrap.min.js' %}"></script>
+      <script src="{% static 'jones/js/bootstrap-select.min.js' %}"></script>
+      <!-- <script src="{% static 'jones/js/jquery.mmenu.all.js' %}"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery.mmenu/9.3.0/mmenu.min.js" integrity="sha512-l2fHTYCLVbhRDc5CZWrkKJ06JWFjG5etNQ4G85PbyRiHP769IiVDmhwI0BYSFOXYJUYRmaq5PvfaxacZm9eqhg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="{% static 'jones/js/ace-responsive-menu.js' %}"></script>
+      <script src="{% static 'jones/js/chart.min.js' %}"></script>
+      <script src="{% static 'jones/js/jquery-scrolltofixed-min.js' %}"></script>
+      <script src="{% static 'jones/js/dashboard-script.js' %}"></script>
+      <script src="https://cdn.tiny.cloud/1/xb8u9znne36ose1u4cq7xa71k3ihdvj80hzr437s4clpytw8/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+      <!-- Custom script for all pages -->
+      <script src="{% static 'jones/js/script-dash.js' %}"></script>
 
-  {% block scripts %}{% endblock %}
+      {% block scripts %}{% endblock %}
 </body>
 
 </html>

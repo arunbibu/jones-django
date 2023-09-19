@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="{% static 'jones/css/slider.css' %}" />
     <link rel="stylesheet" href="{% static 'jones/css/ud-custom-spacing.css' %}" />
     <link rel="stylesheet" href="{% static 'jones/css/style.css' %}" />
+    {% block style %}{% endblock style %}
 
     <link rel="stylesheet" href="{% static 'jones/css/responsive.css' %}" />
 
@@ -277,9 +278,9 @@
     <script src="{% static 'jones/js/wow.min.js' %}"></script>
     <script src="{% static 'jones/js/owl.js' %}"></script>
     <script src="{% static 'jones/js/parallax.js' %}"></script>
-    <!-- <script src="{% static 'jones/js/pricing-slider.js' %}"></script> -->
 
     <script src="{% static 'jones/js/script.js' %}"></script>
+    {% block script %}{% endblock script %}
 </body>
 
 </html>

@@ -25,30 +25,31 @@
         <div class="col-lg-5 position-relative">
           <div class="home8-contact-form default-box-shadow1 bdrs12 bdr1 p30 mb30-md bgc-white">
             <h4 class="form-title mb25">Have questions? Get in touch!</h4>
-            <form class="form-style1">
+            <form class="form-style1" method="POST" action="">
+              {% csrf_token %}
               <div class="row">
                 <div class="col-lg-12">
                   <div class="mb20">
                     <label class="heading-color ff-heading fw600 mb10">Your Name</label>
-                    <input type="text" class="form-control" placeholder="Your Name" />
+                    <input type="text" class="form-control" placeholder="Your Name" name="jones-name" />
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="mb20">
                     <label class="heading-color ff-heading fw600 mb10">Email</label>
-                    <input type="email" class="form-control" placeholder="Your Name" />
+                    <input type="email" class="form-control" placeholder="Your Name" name="jones-email"/>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="mb20">
                     <label class="heading-color ff-heading fw600 mb10">Phone</label>
-                    <input type="tel" class="form-control" placeholder="Your Phone" />
+                    <input type="tel" class="form-control" placeholder="Your Phone" name="jones-phone"/>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="mb20">
                     <label class="heading-color ff-heading fw600 mb10">Requirement </label>
-                    <select name="">
+                    <select name="jones-requirements" class="form-control" >
                       <option value="Find a property">Find a property</option>
                       <option value="List a property">List a property</option>
                     </select>
@@ -57,12 +58,12 @@
                 <div class="col-md-12">
                   <div class="mb10">
                     <label class="heading-color ff-heading fw600 mb10">Message</label>
-                    <textarea cols="30" rows="4" placeholder="There are many variations of passages."></textarea>
+                    <textarea cols="30" rows="4" placeholder="There are many variations of passages." name="jones-message"></textarea>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="d-grid">
-                    <a class="ud-btn btn-thm" href="page-contact.html">Submit<i class="fal fa-arrow-right-long"></i></a>
+                    <button class="ud-btn btn-thm" type="submit">Submit<i class="fal fa-arrow-right-long"></i></button>
                   </div>
                 </div>
               </div>

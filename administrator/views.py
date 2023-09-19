@@ -234,6 +234,105 @@ def testimonials_delete(request, id):
         return JsonResponse({'result': 'This user is not Authorized to delete testimonial'})
     
 
+# Blogs Section
+
+
+@login_required(login_url='login')
+def blogs(request):
+    if request.user.is_authenticated:
+        if request.method == "GET":
+            if request.user.has_perm('administrator.view_blogs'):
+                blogs = Blogs.objects.all()
+                return render(request, 'administrator/blogs/blog.html', {'blogs': blogs})
+            else:
+                return HttpResponse('This user is not Authorized to view Blogs')
+        if request.method == "POST":
+            name = request.POST['blog-name']
+            excerpt = request.POST['blog-excerpt']
+            content = request.POST['blog-content']
+            cat = request.POST['blog-cat']
+            image = request.FILES['blog-thumb']
+            image = request.FILES['blog-thumb']
+            blog = Blogs(
+                title=name, category=cat, content=content, excerpt=excerpt, thumb=image, slug=slugify(name))
+            blog.save()
+            return redirect("blog")
+    else:
+        return HttpResponse('Please Login first to view Blogs')
+
+
+@login_required(login_url='login')
+def blogs_list(request, id):
+    if request.user.is_authenticated:
+        if request.user.has_perm('administrator.view_blogs'):
+            if request.method == "GET":
+                try:
+                    blog = Blogs.objects.filter(
+                        id=id).values('id', 'title', 'category', 'excerpt', 'content')
+                    print(blog)
+                    return JsonResponse({'result': list(blog)})
+                except Exception as e:
+                    print(str(e))
+                    return JsonResponse({'result': False, 'content': 'Error Occured while listing the blog'})
+            else:
+                return JsonResponse({'result': False, 'content': 'Incorrect Method'})
+        else:
+            return JsonResponse({'result': 'This user is not Authorized to view blog'})
+    else:
+        return JsonResponse({'result': 'This user is not Authorized to view blog'})
+
+
+@login_required(login_url='login')
+def blogs_update(request, id):
+    if request.user.is_authenticated:
+        if request.user.has_perm('administrator.change_blogs'):
+            if request.method == "POST":
+                try:
+                    title = request.POST['blog-title']
+                    cat = request.POST['blog-cat']
+                    excrept = request.POST['blog-excerpt']
+                    content = request.POST['blog-content']
+                    blog = Blogs.objects.get(id=id)
+                    blog.title = title
+                    blog.category = cat
+                    blog.slug = slugify(title)
+                    if request.FILES:
+                        image = request.FILES['blog-image']
+                        blog.thumb = image
+                    blog.content = content
+                    blog.excerpt = excrept
+                    blog.save()
+                    return redirect("blog")
+                except Exception as e:
+                    print(str(e))
+                    return HttpResponse('Error Occured while updating')
+            else:
+                return HttpResponse('Incorrect Method')
+        else:
+            return HttpResponse('This user is not Authorized to change testimonial')
+    else:
+        return HttpResponse('This user is not Authorized to change testimonial')
+
+
+@login_required(login_url='login')
+def blogs_delete(request, id):
+    if request.user.is_authenticated:
+        if request.user.has_perm('administrator.delete_blogs'):
+            if request.method == "POST":
+                try:
+                    testimonial = Blogs.objects.get(id=id)
+                    testimonial.delete()
+                    return JsonResponse({'result': True})
+                except:
+                    return JsonResponse({'result': False, 'content': 'Error Occured while deleting'})
+            else:
+                return JsonResponse({'result': False, 'content': 'Incorrect Method'})
+        else:
+            return JsonResponse({'result': 'This user is not Authorized to delete testimonial'})
+    else:
+        return JsonResponse({'result': 'This user is not Authorized to delete testimonial'})
+    
+
 # Meta Tag Section
 
 
@@ -297,5 +396,11 @@ def meta_tags_update(request, id):
             return HttpResponse('This user is not Authorized to change meta_tag')
     else:
         return HttpResponse('This user is not Authorized to change meta_tag')
+    
+# contact form
+def contact(request):
+    data = ContactForm.objects.all()
+    print(data)
+    return render(request,"administrator/contact/contact.html",{"data": data})
 
 

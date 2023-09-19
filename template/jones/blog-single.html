@@ -6,12 +6,12 @@
         <div class="row wow fadeInUp" data-wow-delay="100ms"
             style="visibility: visible; animation-delay: 100ms; animation-name: fadeInUp;">
             <div class="col-lg-12">
-                <h2 class="blog-title">7 Simple Ways to Keep Your Kids' Toys From Taking Over Your Home</h2>
+                <h2 class="blog-title">{{blog.title}}</h2>
                 <div class="blog-single-meta">
                     <div class="post-author d-sm-flex align-items-center">
                         <img class="mr10" src="{% static 'jones/images/blog/author-1.png' %}" alt="" /><a
                             class="pr15 bdrr1" href="">Priya</a><a class="ml15 pr15 bdrr1" href="">Home
-                            Improvement</a><a class="ml15" href="">Sep 1, 2023</a>
+                            Improvement</a><a class="ml15" href="">{{blog.created_on|date:"M"}} {{blog.created_on|date:"d"}},{{blog.created_on|date:"y"}}</a>
                     </div>
                 </div>
             </div>
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="large-thumb">
-                    <img class="w-100" src="{% static 'jones/images/blog/blog-single-1.jpg' %}" alt="" />
+                    <img class="w-100" src="{{blog.thumb.url}}" alt="" />
                 </div>
             </div>
         </div>
@@ -31,62 +31,7 @@
         <div class="roww wow fadeInUp" data-wow-delay="500ms"
             style="visibility: visible; animation-delay: 500ms; animation-name: fadeInUp;">
             <div class="col-xl-8 offset-xl-2">
-                <div class="ui-content mt40 mb60">
-                    <h4 class="mb10">1. Reduce the clutter</h4>
-                    <p class="mb25 ff-heading">It doesn’t matter how organized you are — a surplus of toys will always
-                        ensure your house is a mess waiting to happen. Fortunately, getting kids on board with the idea
-                        of ditching their stuff is a lot easier than it sounds.</p>
-                    <p class="ff-heading">The trick is to make it an opportunity for them to define themselves and their
-                        interests. Encourage kids to make a pile of ”baby toys” to donate, and have them set aside any
-                        toys that no longer interest them, such as action figures from a forgotten TV show. Separating
-                        these toys will help them appreciate how much they’ve grown and rediscover the toys they love.
-                    </p>
-                </div>
-                <div class="blockquote-style1 mb60">
-                    <blockquote class="blockquote">
-                        <p class="fst-italic fz15 fw500 ff-heading">Aliquam hendrerit sollicitudin purus, quis rutrum mi
-                            accumsan nec. Quisque bibendum orci ac nibh facilisis, at malesuada orci congue.</p>
-                        <h6 class="quote-title">Luis Pickford</h6>
-                    </blockquote>
-                </div>
-                <div class="ui-content">
-                    <h4 class="title">2. Choose toys wisely</h4>
-                </div>
-                <div class="col-lg-12 mt40">
-                    <img src="{% static 'jones/images/blog/blog-single-2.jpg' %}" alt=""
-                        class="bdrs12 post-img-2 w-100" />
-                </div>
-                <div class="ui-content mt40 mb30">
-                    <h4 class="mb10">3.Leave some toys out of reach</h4>
-                    <div class="custom_bsp_grid">
-                        <ul class="list-style-type-bullet p-0 ml20">
-                            <li>We do not require any previous experience or pre-defined skills to take this course. A
-                                great orientation would be enough to master UI/UX design.</li>
-                            <li>A computer with a good internet connection.</li>
-                            <li>Adobe Photoshop (OPTIONAL)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="mbp_pagination_tab bdrb1">
-                    <div class="row justify-content-between pt45 pt30-sm pb45 pb30-sm">
-                        <div class="col-md-6">
-                            <div class="pag_prev">
-                                <a href="">
-                                    <h6><span class="fas fa-chevron-left pe-2"></span> Previous Post</h6>
-                                    <p class="fz13 text mb-0">Given Set was without from god divide rule Hath</p>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="pag_next">
-                                <a href="" class="text-end">
-                                    <h6>Next Post<span class="fas fa-chevron-right ps-2"></span></h6>
-                                    <p class="fz13 text mb-0">Tree earth fowl given moveth deep lesser After</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {{blog.content|safe}}
             </div>
         </div>
     </div>
