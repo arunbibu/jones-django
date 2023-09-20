@@ -64,21 +64,8 @@ def interiors(request):
 # leasing
 
 
-def leasing(request):
-    return render(request, 'jones/leasing.html')
-
-# rental
-
-
-def rental(request):
-    return render(request, 'jones/rental.html')
-
-# sell
-
-
-def sell(request):
-    return render(request, 'jones/sell.html')
-
+def service(request):
+    return render(request, 'jones/services.html')
 
 # contact view
 
@@ -96,3 +83,6 @@ def contact(request):
         return render(request, 'jones/contact.html')
     if request.method == 'GET':
         return render(request, 'jones/contact.html')
+    
+def thank_you(request):
+    return render(request,'jones/thank-you.html')

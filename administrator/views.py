@@ -247,7 +247,7 @@ def blogs(request):
             else:
                 return HttpResponse('This user is not Authorized to view Blogs')
         if request.method == "POST":
-            name = request.POST['blog-name']
+            name = request.POST['blog-title']
             excerpt = request.POST['blog-excerpt']
             content = request.POST['blog-content']
             cat = request.POST['blog-cat']

@@ -43,6 +43,7 @@ class Testimonials(models.Model):
 
 class Blogs(models.Model):
     cat = (
+        ("article", "Articles"),
         ("blogs", "Blogs"),
         ("news", "News")
     )

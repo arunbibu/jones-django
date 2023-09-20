@@ -67,13 +67,8 @@
                                         <a class="list-item" href="{% url 'properties' %}"><span class="title">List a
                                                 Property</span></a>
                                     </li>
-                                    <li class="visible_list"> <a class="list-item" href="#"><span
-                                                class="title">Services</span><span class="arrow "></span></a>
-                                        <ul class="sub-menu" style="display: none;">
-                                            <li><a href="{% url 'leasing' %}">Leasing</a></li>
-                                            <li><a href="{% url 'rental' %}">Rental</a></li>
-                                            <li><a href="{% url 'sell' %}">Sell</a></li>
-                                        </ul>
+                                    <li class="visible_list">
+                                        <a class="list-item" href="{% url 'service' %}"><span class="title">Services</span></a>
                                     </li>
                                     <li class="visible_list">
                                         <a class="list-item" href="{% url 'interiors' %}"><span
@@ -124,13 +119,8 @@
                     <li>
                         <a href="{% url 'properties' %}">List a Property</a>
                     </li>
-                    <li class="visible_list"> <a class="list-item" href="#"><span class="title">Property</span><span
-                                class="arrow "></span></a>
-                        <ul class="sub-menu" style="display: none;">
-                            <li><a href="{% url 'leasing' %}">Leasing</a></li>
-                            <li><a href="{% url 'rental' %}">Rental</a></li>
-                            <li><a href="{% url 'sell' %}">Sell</a></li>
-                        </ul>
+                    <li>
+                        <a href="{% url 'service' %}">Services</a>
                     </li>
                     <li>
                         <a href="{% url 'about' %}">About Us</a>
